@@ -40,7 +40,7 @@ You can simply override CSS Variables in your `App.vue`. Theme CSS Variables are
 </style>
 ```
 
-## Status (see [Contribution](#Contribution))
+## Status (see [Contribution](#Contributing))
 
 ### [Components](https://developer.kaiostech.com/design-guide/ui-component)
 - [x] Header
@@ -98,10 +98,12 @@ Icons are found in the [asset directory](https://github.com/sebastianbaar/vue-ka
 
 # Contributing
 
-There's much work to be done on building out more UI components (see [Status](#Status)), writing tests, etc...
+There's much work to be done on building out more UI components, writing tests, etc...
 
 Please look at currently [open issues](https://github.com/sebastianbaar/vue-kaiui/issues?q=is%3Aopen+is%3Aissue) and our [Contributing Guide](https://github.com/sebastianbaar/vue-kaiui/blob/master/CONTRIBUTING.md).
 
 ---
 
 > Thanks [Adrian Machado](https://github.com/AdrianMachado) for the inspiration. Check out his awesome [KaiUI](https://github.com/AdrianMachado/KaiUI) (React component library for KaiOS apps).
+
+---
