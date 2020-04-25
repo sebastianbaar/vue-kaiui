@@ -13,8 +13,8 @@ In yout `main.js` add
 ```javascript
 import Vue from 'vue'
 import App from './App.vue'
-import VueKaiUI from "vue-kaiui"; // !
 
+import VueKaiUI from "vue-kaiui"; // !
 Vue.use(VueKaiUI) // !
 
 new Vue({
