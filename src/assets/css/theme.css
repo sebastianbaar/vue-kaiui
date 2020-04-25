@@ -15,7 +15,8 @@ body,
 }
 
 :root {
-  --primary-color: #873cff;
+  --primary-color: #6f02b5;
+  --primary-light-color: #af8ed8;
   --primary-dark-color: #320276;
   --secondary-color: #e6e6e6;
   --secondary-dark-color: #cccccc;

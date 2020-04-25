@@ -1,14 +1,13 @@
-# KaiUI Vue
-UI Component library for building KaiOS apps. All components and views are navigable using a phone's d-pad and softkeys.
+![Logo of vue-kaiui](./screenshots/vue-kaios-logo.png)
 
-## Sample App
-
+# Vue KaiUI
+Vue component library for KaiOS apps. All components and views are navigable using a phone's d-pad and softkeys.
 
 ## Installation
 ```
 npm install vue-kaiui
 ```
-In yout `main.js` add
+In your `main.js` add
 
 ```javascript
 import Vue from 'vue'
