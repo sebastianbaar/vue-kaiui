@@ -40,7 +40,7 @@ You can simply override CSS Variables in your `App.vue`. Theme CSS Variables are
 </style>
 ```
 
-## Status (see [Contribution](#Contributing))
+## Status (see [Contributing](#contributing))
 
 ### [Components](https://developer.kaiostech.com/design-guide/ui-component)
 - [x] Header
