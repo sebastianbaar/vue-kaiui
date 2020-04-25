@@ -1,0 +1,185 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  font-family: "Open Sans Regular/400", sans-serif;
+  font-size: 17px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: var(--text-dark-color);
+}
+
+:root {
+  --primary-color: #873cff;
+  --primary-dark-color: #320276;
+  --secondary-color: #e6e6e6;
+  --secondary-dark-color: #cccccc;
+  --dark-color: #6a6a6a;
+  --light-color: #ffffff;
+
+  --text-dark-color: #6a6a6a;
+  --text-light-color: #ffffff;
+
+  --header-background-color: var(--primary-dark-color);
+  --header-text-color: var(--text-light-color);
+
+  --separator-background-color: var(--secondary-color);
+  --separator-text-color: var(--text-dark-color);
+
+  --tabbar-tabs-selected-color: var(--primary-dark-color);
+  --tabbar-tabs-background-color: var(--secondary-color);
+
+  --listitem-selected-background-color: var(--primary-color);
+  --listitem-selected-text-color: var(--text-light-color);
+  --listitem-icon-right-color: var(--dark-color);
+
+  --checkbox-listitem-selected-background-color: var(--primary-color);
+  --checkbox-listitem-selected-text-color: var(--text-light-color);
+  --checkbox-listitem-icon-selected-color: var(--light-color);
+  --checkbox-listitem-icon-selected-checked-color: var(--light-color);
+  --checkbox-listitem-icon-color: var(--text-dark-color);
+  --checkbox-listitem-icon-color-checked: var(--primary-color);
+
+  --button-background-color: var(--secondary-dark-color);
+  --button-selected-background-color: var(--primary-color);
+  --button-text-color: var(--text-dark-color);
+  --button-selected-text-color: var(--text-light-color);
+  --button-icon-color: var(--primary-color);
+  --button-selected-icon-color: var(--light-color);
+
+  --slider-selected-background-color: var(--primary-color);
+  --slider-text-color: var(--text-dark-color);
+  --slider-selected-text-color: var(--text-light-color);
+  --slider-slider-color: var(--primary-color);
+  --slider-selected-slider-color: var(--light-color);
+  --slider-slider-thumb-color: var(--primary-color);
+  --slider-selected-slider-thumb-color: var(--light-color);
+
+  --input-selected-color: var(--primary-color);
+  --input-border-color: var(--secondary-dark-color);
+  --input-placeholder-color: #9b9b9b;
+
+  --toast-background-color: #323232;
+}
+
+/* KaiOS Typography*/
+/* https://developer.kaiostech.com/design-guide/typography */
+.kaiui-h1 {
+  font-family: "Open Sans Light/300";
+  font-size: 17px;
+}
+.kaiui-h2 {
+  font-family: "Open Sans Semi-Bold/600";
+  font-size: 17px;
+}
+.kaiui-h3 {
+  font-family: "Open Sans Regular/400";
+  font-size: 14px;
+}
+.kaiui-h4 {
+  font-family: "Open Sans Regular/400";
+  font-size: 14px;
+}
+.kaiui-h5 {
+  font-family: "Open Sans Semi-Bold/600";
+  font-size: 14px;
+}
+.kaiui-p_pri {
+  font-family: "Open Sans Regular/400";
+  font-size: 17px;
+}
+.kaiui-p_sec {
+  font-family: "Open Sans Regular/400";
+  font-size: 14px;
+}
+.kaiui-p_thi {
+  font-family: "Open Sans Regular/400";
+  font-size: 12px;
+}
+.kaiui-p_ul {
+  font-family: "Open Sans Regular/400";
+  font-size: 17px;
+}
+.p_link {
+  font-family: "Open Sans Bold/700";
+  font-size: 17px;
+}
+.kaiui-p_btn {
+  font-family: "Open Sans Regular/400";
+  font-size: 17px;
+}
+
+/* open-sans-300 - latin */
+@font-face {
+  font-family: "Open Sans Light/300";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/open-sans-v17-latin-300.eot"); /* IE9 Compat Modes */
+  src: local("Open Sans Light"), local("OpenSans-Light"),
+    url("../fonts/open-sans-v17-latin-300.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../fonts/open-sans-v17-latin-300.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("../fonts/open-sans-v17-latin-300.woff")
+      format("woff"),
+    /* Modern Browsers */ url("../fonts/open-sans-v17-latin-300.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("../fonts/open-sans-v17-latin-300.svg#OpenSans") format("svg"); /* Legacy iOS */
+}
+/* open-sans-regular - latin */
+@font-face {
+  font-family: "Open Sans Regular/400";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/open-sans-v17-latin-regular.eot"); /* IE9 Compat Modes */
+  src: local("Open Sans Regular"), local("OpenSans-Regular"),
+    url("../fonts/open-sans-v17-latin-regular.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../fonts/open-sans-v17-latin-regular.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */ url("../fonts/open-sans-v17-latin-regular.woff")
+      format("woff"),
+    /* Modern Browsers */ url("../fonts/open-sans-v17-latin-regular.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("../fonts/open-sans-v17-latin-regular.svg#OpenSans") format("svg"); /* Legacy iOS */
+}
+/* open-sans-600 - latin */
+@font-face {
+  font-family: "Open Sans Semi-Bold/600";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/open-sans-v17-latin-600.eot"); /* IE9 Compat Modes */
+  src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"),
+    url("../fonts/open-sans-v17-latin-600.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../fonts/open-sans-v17-latin-600.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("../fonts/open-sans-v17-latin-600.woff")
+      format("woff"),
+    /* Modern Browsers */ url("../fonts/open-sans-v17-latin-600.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("../fonts/open-sans-v17-latin-600.svg#OpenSans") format("svg"); /* Legacy iOS */
+}
+/* open-sans-700 - latin */
+@font-face {
+  font-family: "Open Sans Bold/700";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/open-sans-v17-latin-700.eot"); /* IE9 Compat Modes */
+  src: local("Open Sans Bold"), local("OpenSans-Bold"),
+    url("../fonts/open-sans-v17-latin-700.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../fonts/open-sans-v17-latin-700.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("../fonts/open-sans-v17-latin-700.woff")
+      format("woff"),
+    /* Modern Browsers */ url("../fonts/open-sans-v17-latin-700.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("../fonts/open-sans-v17-latin-700.svg#OpenSans") format("svg"); /* Legacy iOS */
+}

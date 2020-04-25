@@ -1,0 +1,34 @@
+<template>
+  <div class="kaiui-separator">
+    <span class="kaiui-h4 kaiui-separator-text">{{ title }}</span>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "kaiui-separator",
+  props: {
+    title: {
+      type: String,
+      required: true
+    }
+  }
+};
+</script>
+
+<style scoped>
+.kaiui-separator {
+  height: 24px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: var(--separator-background-color);
+}
+
+.kaiui-separator .kaiui-separator-text {
+  margin: 0 10px;
+  text-align: center;
+  color: var(--separator-text-color);
+}
+</style>
