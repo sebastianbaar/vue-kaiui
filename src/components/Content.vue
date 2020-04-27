@@ -5,6 +5,9 @@
       v-bind:class="[{'kaiui-has-header': hasHeader}, {'kaiui-has-softkeys': showSoftkeys}]"
     >
       <slot></slot>
+
+      <kaiui-toast ref="toast" />
+
       <kaiui-softkeys
         ref="softkeys"
         v-if="withSoftkeys && showSoftkeys"
@@ -98,6 +101,9 @@ export default {
       if (this.withSoftkeys) {
         this.showSoftkeys = false;
       }
+    },
+    showToast(title, time) {
+      this.$refs.toast.show(title, time);
     }
   }
 };

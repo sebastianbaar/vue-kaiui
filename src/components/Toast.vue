@@ -9,22 +9,23 @@
 <script>
 export default {
   name: "kaiui-toast",
-  props: {
-    title: {
-      type: String,
-      required: true
-    }
-  },
   data: () => ({
+    title: "",
     shouldShow: false
   }),
   methods: {
-    show(time) {
+    show(title, time) {
       if (this.shouldShow) return;
+      if (title == null) return;
+
+      this.title = title;
       this.shouldShow = true;
-      setTimeout(() => {
-        this.shouldShow = false;
-      }, time ? time : 4000);
+      setTimeout(
+        () => {
+          this.shouldShow = false;
+        },
+        time ? time : 4000
+      );
     }
   }
 };
@@ -55,10 +56,12 @@ export default {
   color: var(--header-text-color);
 }
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
-.fade-enter, .fade-leave-to {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 </style>
