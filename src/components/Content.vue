@@ -7,13 +7,14 @@
       <slot></slot>
 
       <kaiui-toast ref="toast" />
-
-      <kaiui-softkeys
-        ref="softkeys"
-        v-if="withSoftkeys && showSoftkeys"
-        v-bind:softkeys="softkeys"
-        v-bind:component="currentSoftkeyComponent"
-      />
+      <transition name="fade">
+        <kaiui-softkeys
+          ref="softkeys"
+          v-if="withSoftkeys && showSoftkeys"
+          v-bind:softkeys="softkeys"
+          v-bind:component="currentSoftkeyComponent"
+        />
+      </transition>
     </div>
   </div>
 </template>
@@ -50,16 +51,18 @@ export default {
     document.addEventListener("keydown", this.onKeyDown);
 
     // header handler
-    this.$on("update-header-registered", isHeaderShown => {
+    this.$root.$on("update-header-registered", isHeaderShown => {
       this.hasHeader = isHeaderShown;
     });
 
     // softkey handler
-    this.$on("update-softkeys-register", component => {
+    this.$root.$on("update-softkeys-register", component => {
+      console.log("$on: update-softkeys-register", component);
       this.handleUpdateSoftkeyText(component.softkeys);
       this.currentSoftkeyComponent = component;
     });
-    this.$on("update-softkeys-unregister", () => {
+    this.$root.$on("update-softkeys-unregister", () => {
+      console.log("$on: update-softkeys-unregister");
       this.handleUpdateSoftkeyUnregister();
       this.currentSoftkeyComponent = null;
     });
@@ -128,5 +131,14 @@ export default {
 }
 .kaiui-content-slot-content.kaiui-has-softkeys {
   margin-bottom: 30px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

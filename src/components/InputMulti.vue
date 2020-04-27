@@ -47,9 +47,9 @@ export default {
   methods: {
     handleFocusChange(isNowFocused) {
       if (isNowFocused) {
-        this.$parent.$emit("update-softkeys-register", this);
+        this.$root.$emit("update-softkeys-register", this);
       } else {
-        this.$parent.$emit("update-softkeys-unregister");
+        this.$root.$emit("update-softkeys-unregister");
       }
     }
   }

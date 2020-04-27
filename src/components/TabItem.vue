@@ -21,14 +21,6 @@ export default {
   },
   mounted() {
     this.isActive = this.selected;
-
-    // forward softkey handler
-    this.$on("update-softkeys-register", (payload) => {
-      this.$parent.$emit("update-softkeys-register", payload);
-    });
-    this.$on("update-softkeys-unregister", () => {
-      this.$parent.$emit("update-softkeys-unregister");
-    });
   },
   data: () => ({
     isActive: false

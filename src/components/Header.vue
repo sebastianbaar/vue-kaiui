@@ -15,11 +15,11 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      this.$parent.$emit("update-header-registered", true);
+      this.$root.$emit("update-header-registered", true);
     });
   },
   beforeDestroy() {
-    this.$parent.$emit("update-header-registered", false);
+    this.$root.$emit("update-header-registered", false);
   }
 };
 </script>

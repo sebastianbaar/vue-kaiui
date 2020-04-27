@@ -24,14 +24,6 @@ export default {
   props: {},
   mounted() {
     this.tabs = this.$children;
-
-    // forward softkey handler
-    this.$on("update-softkeys-register", (payload) => {
-      this.$parent.$emit("update-softkeys-register", payload);
-    });
-    this.$on("update-softkeys-unregister", () => {
-      this.$parent.$emit("update-softkeys-unregister");
-    });
   },
   data: () => ({
     tabs: []
