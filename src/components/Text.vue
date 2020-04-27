@@ -19,6 +19,7 @@ export default {
 <style scoped>
 .kaiui-text {
   padding: 10px;
+  outline: 0;
 }
 .kaiui-text p {
   margin: 0;

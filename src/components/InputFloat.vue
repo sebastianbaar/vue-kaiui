@@ -46,11 +46,11 @@ export default {
   width: 100%;
   border: 0;
   border-bottom: 1px solid var(--input-border-color);
-  outline: 0;
   color: transparent;
   padding: 10px 0;
   background: transparent;
   transition: border-color 0.2s;
+  outline: 0;
 }
 
 .kaiui-input-float .kaiui-input-float-label {

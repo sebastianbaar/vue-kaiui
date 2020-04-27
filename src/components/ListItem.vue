@@ -84,6 +84,9 @@ export default {
   min-height: 60px;
   max-height: 60px;
   padding: 0 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  outline: 0;
 }
 .kaiui-listitem[nav-selected="true"] {
   background-color: var(--listitem-selected-background-color);
@@ -94,6 +97,13 @@ export default {
   flex-direction: column;
   justify-content: center;
   height: 100%;
+  overflow: hidden;
+}
+
+.kaiui-listitem .kaiui-listitem-text-wrapper span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .kaiui-listitem[nav-selected="true"] .kaiui-listitem-primary-text {
@@ -117,12 +127,15 @@ export default {
   align-items: center;
   font-size: 32px;
   margin-right: 10px;
+  flex-shrink: 0;
 }
 
 .kaiui-listitem .kaiui-listitem-icon.right {
   margin-left: auto;
   margin-right: 0;
   font-size: 20px;
+  flex-shrink: 0;
+  margin-left: 10px;
 }
 .kaiui-listitem .kaiui-listitem-icon.right:before {
   color: var(--listitem-icon-right-color);

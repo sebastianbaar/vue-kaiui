@@ -7,7 +7,6 @@
 </template>
 
 <script>
-// import EventBus from "../navigation/Softkeys";
 
 export default {
   name: "kaiui-softkeys",

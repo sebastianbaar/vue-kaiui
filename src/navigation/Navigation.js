@@ -42,7 +42,6 @@ const selectElement = (selectElement) => {
       element.focus();
       element.scrollIntoView({
         behavior: "smooth",
-        block: "center",
         inline: "center",
       });
     } else {
@@ -107,7 +106,6 @@ const selectTabElement = (selectElement) => {
       element.focus();
       element.scrollIntoView({
         behavior: "smooth",
-        block: "center",
         inline: "center",
       });
     } else {

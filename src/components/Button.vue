@@ -67,6 +67,7 @@ export default {
   border-radius: 4px;
   background-color: var(--button-background-color);
   flex-direction: row;
+  outline: 0;
 }
 .kaiui-button.kaiui-button-reversed-icon {
   flex-direction: row-reverse;

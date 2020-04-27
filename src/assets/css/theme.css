@@ -12,6 +12,8 @@ body,
   flex-direction: column;
   height: 100%;
   color: var(--text-dark-color);
+  overflow: hidden;
+  outline: 0;
 }
 
 :root {

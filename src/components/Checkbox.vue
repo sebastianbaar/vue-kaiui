@@ -68,6 +68,7 @@ export default {
   min-height: 60px;
   max-height: 60px;
   padding: 0 10px;
+  outline: 0;
 }
 .kaiui-checkbox[nav-selected="true"] {
   background-color: var(--checkbox-listitem-selected-background-color);

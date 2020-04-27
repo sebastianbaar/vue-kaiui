@@ -69,6 +69,7 @@ export default {
   width: 100%;
   border: 1px solid var(--input-border-color);
   padding: 10px;
+  outline: 0;
 }
 
 .kaiui-input-multi .kaiui-input-multi-label {

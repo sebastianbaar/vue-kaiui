@@ -13,7 +13,15 @@
     </div>
 
     <div class="kaiui-slider-slide-container">
-      <input type="range" min="1" max="10" v-bind:value="value" class="kaiui-slider-slider" />
+      <input
+        type="range"
+        v-bind:min="minValue"
+        v-bind:max="maxValue"
+        v-bind:step="step"
+        v-bind:value="value"
+        v-on:input="onInputChanged($event.target.value)"
+        class="kaiui-slider-slider"
+      />
     </div>
   </div>
 </template>
@@ -31,27 +39,46 @@ export default {
       type: String,
       required: true
     },
+    startValue: {
+      default: 0,
+      type: Number
+    },
+    step: {
+      default: 1,
+      type: Number,
+      required: true
+    },
+    minValue: {
+      default: 1,
+      type: Number,
+      required: true
+    },
     maxValue: {
+      default: 10,
       type: Number,
       required: true
     }
   },
   mounted() {
+    this.value = this.startValue;
+
     this.$on("softkey-left-pressed", () => {
       this.$emit("softLeft");
-      this.value = this.value > 0 ? this.value - 1 : this.value
+      const newValue =
+        this.value > this.minValue ? this.value - this.step : this.value;
+      this.onInputChanged(newValue);
     });
     this.$on("softkey-right-pressed", () => {
       this.$emit("softRight");
-      this.value = this.value < this.maxValue ? this.value + 1 : this.maxValue
+      const newValue =
+        this.value < this.maxValue ? this.value + this.step : this.maxValue;
+      this.onInputChanged(newValue);
     });
     this.$on("softkey-center-pressed", () => {
       this.$emit("softCenter");
     });
   },
-  data: () => ({
-    value: 2//parseInt(this.maxValue / 2)
-  }),
+  data: () => ({ value: 0 }),
   methods: {
     handleFocusChange(isNowFocused) {
       if (isNowFocused) {
@@ -59,6 +86,10 @@ export default {
       } else {
         this.$parent.$emit("update-softkeys-unregister");
       }
+    },
+    onInputChanged(newValue) {
+      this.value = newValue;
+      this.$emit("change", newValue);
     }
   }
 };
@@ -73,6 +104,7 @@ export default {
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
+  outline: 0;
 }
 .kaiui-slider[nav-selected="true"] {
   background-color: var(--slider-selected-background-color);
@@ -113,7 +145,8 @@ export default {
   width: 100%;
   height: 7px;
   border-radius: 5px;
-  outline: none;
+  outline: 0;
+  margin: 0;
 }
 
 .kaiui-slider

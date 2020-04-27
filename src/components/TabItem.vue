@@ -43,12 +43,13 @@ export default {
   flex-direction: column;
   height: 100%;
   flex: 1;
+  min-width: 0;
 }
 .kaiui-tabitem-wrapper .kaiui-tabitem-slot-content {
   display: flex;
   flex-direction: column;
   min-height: 0;
   flex: 1;
-  overflow-y: scroll;
+  overflow: hidden;
 }
 </style>

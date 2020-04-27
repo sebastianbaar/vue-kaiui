@@ -114,7 +114,7 @@ export default {
   flex-direction: column;
   min-height: 0;
   flex: 1;
-  overflow-y: scroll;
+  overflow: hidden;
 }
 
 .kaiui-content-slot-content.kaiui-has-header {

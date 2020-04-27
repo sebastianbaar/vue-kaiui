@@ -51,13 +51,14 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow: hidden;
 }
 .kaiui-tabs-wrapper .kaiui-tabs-slot-content {
   display: flex;
   flex-direction: row;
   min-height: 0;
   flex: 1;
-  overflow-y: scroll;
+  overflow: hidden;
 }
 
 .kaiui-tabs-wrapper .kaiui-tabs-header {
@@ -72,15 +73,20 @@ export default {
 .kaiui-tabs-wrapper .kaiui-tabs-header::-webkit-scrollbar {
   display: none;
 }
+.kaiui-tabs-wrapper .kaiui-tabs-header {
+  overflow: hidden;
+}
 .kaiui-tabs-wrapper .kaiui-tabs-header .kaiui-tabs-header-tab {
   border-bottom: none;
   margin: 0 5px;
+  outline: 0;
 }
 
 .kaiui-tabs-wrapper
   .kaiui-tabs-header
   .kaiui-tabs-header-tab[tab-selected="true"] {
   border-bottom: 2px solid var(--tabbar-tabs-selected-color);
+  outline: 0;
 }
 
 .kaiui-tabs-wrapper
