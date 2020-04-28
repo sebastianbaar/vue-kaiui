@@ -1,13 +1,15 @@
-# API
+# Components
 
-## kaiui-button 
+## API
+
+### kaiui-button 
 
 The `<kaiui-button>` component. 
 
 - **author** - Sebastian Baar 
 - **license** - MIT 
 
-### props 
+#### props 
 
 - `softkeys` ***Object*** (*optional*) `default: [object Object]` 
 
@@ -17,7 +19,7 @@ The `<kaiui-button>` component.
 
 - `icon-right` ***Boolean*** (*optional*) 
 
-### events 
+#### events 
 
 - `softLeft` 
 
@@ -31,9 +33,14 @@ The `<kaiui-button>` component.
 
 - `set-element-selected` 
 
-## kaiui-checkbox 
+### kaiui-checkbox 
 
-### props 
+The `<kaiui-checkbox>` component. 
+
+- **author** - Sebastian Baar 
+- **license** - MIT 
+
+#### props 
 
 - `softkeys` ***Object*** (*optional*) `default: [object Object]` 
 
@@ -41,7 +48,7 @@ The `<kaiui-button>` component.
 
 - `secondary-text` ***String*** (*optional*) 
 
-### data 
+#### data 
 
 - `isChecked` 
 
@@ -51,7 +58,7 @@ The `<kaiui-button>` component.
 
 **initial value:** `[object Object]` 
 
-### events 
+#### events 
 
 - `softLeft` 
 
@@ -65,23 +72,23 @@ The `<kaiui-button>` component.
 
 - `set-element-selected` 
 
-### methods 
+#### methods 
 
 - `handleFocusChange(isNowFocused)` 
 
 - `onClick()` 
 
-## kaiui-content 
+### kaiui-content 
 
-### slots 
+#### slots 
 
 - `default` 
 
-### props 
+#### props 
 
 - `with-softkeys` ***Boolean*** (*optional*) `default: true` 
 
-### data 
+#### data 
 
 - `softkeys` 
 
@@ -99,7 +106,7 @@ The `<kaiui-button>` component.
 
 **initial value:** `false` 
 
-### methods 
+#### methods 
 
 - `onKeyDown(event)` 
 
@@ -109,25 +116,25 @@ The `<kaiui-button>` component.
 
 - `showToast(title, time)` 
 
-## kaiui-header 
+### kaiui-header 
 
-### props 
+#### props 
 
 - `title` ***String*** (*required*) 
 
-### events 
+#### events 
 
 - `update-header-registered` 
 
-## kaiui-input 
+### kaiui-input 
 
-### props 
+#### props 
 
 - `placeholder` ***String*** (*optional*) 
 
 - `label` ***String*** (*required*) 
 
-### data 
+#### data 
 
 - `value` 
 
@@ -137,25 +144,25 @@ The `<kaiui-button>` component.
 
 **initial value:** `[object Object]` 
 
-### events 
+#### events 
 
 - `input` 
 
 - `set-element-selected` 
 
-### methods 
+#### methods 
 
 - `onInput()` 
 
 - `onClick()` 
 
-## kaiui-input-float 
+### kaiui-input-float 
 
-### props 
+#### props 
 
 - `label` ***String*** (*required*) 
 
-### data 
+#### data 
 
 - `value` 
 
@@ -165,21 +172,21 @@ The `<kaiui-button>` component.
 
 **initial value:** `[object Object]` 
 
-### events 
+#### events 
 
 - `input` 
 
 - `set-element-selected` 
 
-### methods 
+#### methods 
 
 - `onInput()` 
 
 - `onClick()` 
 
-## kaiui-input-multi 
+### kaiui-input-multi 
 
-### props 
+#### props 
 
 - `softkeys` ***Object*** (*optional*) `default: [object Object]` 
 
@@ -187,7 +194,7 @@ The `<kaiui-button>` component.
 
 - `label` ***String*** (*required*) 
 
-### data 
+#### data 
 
 - `value` 
 
@@ -197,7 +204,7 @@ The `<kaiui-button>` component.
 
 **initial value:** `[object Object]` 
 
-### events 
+#### events 
 
 - `softLeft` 
 
@@ -211,7 +218,7 @@ The `<kaiui-button>` component.
 
 - `set-element-selected` 
 
-### methods 
+#### methods 
 
 - `onInput()` 
 
@@ -219,9 +226,9 @@ The `<kaiui-button>` component.
 
 - `onClick()` 
 
-## kaiui-list-item 
+### kaiui-list-item 
 
-### props 
+#### props 
 
 - `softkeys` ***Object*** (*optional*) `default: [object Object]` 
 
@@ -235,13 +242,13 @@ The `<kaiui-button>` component.
 
 - `icon-right` ***String*** (*optional*) `default: 'kai-icon-arrow'` 
 
-### data 
+#### data 
 
 - `refId` 
 
 **initial value:** `[object Object]` 
 
-### events 
+#### events 
 
 - `softLeft` 
 
@@ -255,21 +262,21 @@ The `<kaiui-button>` component.
 
 - `set-element-selected` 
 
-### methods 
+#### methods 
 
 - `handleFocusChange(isNowFocused)` 
 
 - `onClick()` 
 
-## kaiui-separator 
+### kaiui-separator 
 
-### props 
+#### props 
 
 - `title` ***String*** (*required*) 
 
-## kaiui-slider 
+### kaiui-slider 
 
-### props 
+#### props 
 
 - `softkeys` ***Object*** (*optional*) `default: [object Object]` 
 
@@ -283,7 +290,7 @@ The `<kaiui-button>` component.
 
 - `max-value` ***Number*** (*required*) `default: 10` 
 
-### data 
+#### data 
 
 - `value` 
 
@@ -293,7 +300,7 @@ The `<kaiui-button>` component.
 
 **initial value:** `[object Object]` 
 
-### events 
+#### events 
 
 - `softLeft` 
 
@@ -309,7 +316,7 @@ The `<kaiui-button>` component.
 
 - `set-element-selected` 
 
-### methods 
+#### methods 
 
 - `handleFocusChange(isNowFocused)` 
 
@@ -317,15 +324,15 @@ The `<kaiui-button>` component.
 
 - `onClick()` 
 
-## kaiui-softkeys 
+### kaiui-softkeys 
 
-### props 
+#### props 
 
 - `softkeys` ***[object Object]*** (*optional*) 
 
 - `component` ***Object*** (*required*) `default: null` 
 
-### events 
+#### events 
 
 - `softkey-left-pressed` 
 
@@ -333,35 +340,35 @@ The `<kaiui-button>` component.
 
 - `softkey-center-pressed` 
 
-### methods 
+#### methods 
 
 - `onKeyDown(event)` 
 
-## kaiui-tab-item 
+### kaiui-tab-item 
 
-### slots 
+#### slots 
 
 - `default` 
 
-### props 
+#### props 
 
 - `name` ***String*** (*required*) 
 
 - `selected` ***Boolean*** (*optional*) `default: false` 
 
-### data 
+#### data 
 
 - `isActive` 
 
 **initial value:** `false` 
 
-## kaiui-tabs 
+### kaiui-tabs 
 
-### slots 
+#### slots 
 
 - `default` 
 
-### data 
+#### data 
 
 - `tabs` 
 
@@ -371,25 +378,25 @@ The `<kaiui-button>` component.
 
 **initial value:** `[object Object]` 
 
-### events 
+#### events 
 
 - `set-tab-element-selected` 
 
-### methods 
+#### methods 
 
 - `selectTab(selectedTab)` 
 
 - `onClick(tab, index)` 
 
-## kaiui-text 
+### kaiui-text 
 
-### props 
+#### props 
 
 - `text` ***String*** (*required*) 
 
-## kaiui-toast 
+### kaiui-toast 
 
-### data 
+#### data 
 
 - `title` 
 
@@ -399,6 +406,6 @@ The `<kaiui-button>` component.
 
 **initial value:** `false` 
 
-### methods 
+#### methods 
 
 - `show(title, time)` 
