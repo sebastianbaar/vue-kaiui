@@ -41,8 +41,9 @@ const selectElement = (selectElement) => {
     if (selectThisElement) {
       element.focus();
       element.scrollIntoView({
-        behavior: "smooth",
+        block: "center",
         inline: "center",
+        behavior: "smooth"
       });
     } else {
       element.blur();
@@ -105,8 +106,9 @@ const selectTabElement = (selectElement) => {
     if (selectThisElement) {
       element.focus();
       element.scrollIntoView({
-        behavior: "smooth",
+        block: "center",
         inline: "center",
+        behavior: "smooth"
       });
     } else {
       element.blur();
@@ -145,7 +147,6 @@ const Left = (callback) => {
 };
 
 const shouldBeHandledByElement = (direction) => {
-  console.log("shouldBeHandledByElement " + direction);
   // check if current element is scrollable
   const currentElement = getCurrentItem()[0];
   if (!currentElement) return false;
@@ -227,4 +228,6 @@ export default {
   Right,
   Left,
   initElements,
+  selectElement,
+  selectTabElement
 };

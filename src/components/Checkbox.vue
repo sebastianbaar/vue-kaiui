@@ -5,6 +5,8 @@
     tabindex="0"
     v-on:focus="handleFocusChange(true)"
     v-on:blur="handleFocusChange(false)"
+    v-bind:ref="refId"
+    v-on:click="onClick()"
   >
     <div class="kaiui-checkbox-text-wrapper">
       <span class="kaiui-p_pri kaiui-checkbox-primary-text">{{ primaryText }}</span>
@@ -18,6 +20,8 @@
 </template>
 
 <script>
+import Utils from "../utils/Utils";
+
 export default {
   name: "kaiui-checkbox",
   props: {
@@ -44,10 +48,13 @@ export default {
     });
     this.$on("softkey-center-pressed", () => {
       this.$emit("softCenter");
-      this.isChecked = !this.isChecked
+      this.isChecked = !this.isChecked;
     });
   },
-  data: () => ({ isChecked: false }),
+  data: () => ({
+    isChecked: false,
+    refId: Utils.uuid()
+  }),
   methods: {
     handleFocusChange(isNowFocused) {
       if (isNowFocused) {
@@ -55,6 +62,10 @@ export default {
       } else {
         this.$root.$emit("update-softkeys-unregister");
       }
+    },
+    onClick() {
+      this.handleFocusChange(true);
+      this.$root.$emit("set-element-selected", this.$refs[this.refId]);
     }
   }
 };
@@ -68,6 +79,8 @@ export default {
   min-height: 60px;
   max-height: 60px;
   padding: 0 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
   outline: 0;
 }
 .kaiui-checkbox[nav-selected="true"] {
@@ -79,14 +92,20 @@ export default {
   flex-direction: column;
   justify-content: center;
   height: 100%;
+  overflow: hidden;
+  flex: 1;
 }
 
-.kaiui-checkbox[nav-selected="true"]
-  .kaiui-checkbox-primary-text {
+.kaiui-checkbox .kaiui-checkbox-text-wrapper span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kaiui-checkbox[nav-selected="true"] .kaiui-checkbox-primary-text {
   color: var(--checkbox-listitem-selected-text-color);
 }
-.kaiui-checkbox[nav-selected="true"]
-  .kaiui-checkbox-secondary-text {
+.kaiui-checkbox[nav-selected="true"] .kaiui-checkbox-secondary-text {
   color: var(--checkbox-listitem-selected-text-color);
 }
 .kaiui-checkbox[nav-selected="true"]
@@ -102,14 +121,15 @@ export default {
   display: flex;
   align-items: center;
   font-size: 20px;
+  flex-shrink: 0;
   margin-left: auto;
+  margin-right: 0;
+  margin-left: 10px;
 }
-.kaiui-checkbox
-  .kaiui-checkbox-icon.kai-icon-checkbox-unchecked:before {
+.kaiui-checkbox .kaiui-checkbox-icon.kai-icon-checkbox-unchecked:before {
   color: var(--checkbox-listitem-icon-color);
 }
-.kaiui-checkbox
-  .kaiui-checkbox-icon.kai-icon-checkbox-checked:before {
+.kaiui-checkbox .kaiui-checkbox-icon.kai-icon-checkbox-checked:before {
   color: var(--checkbox-listitem-icon-color-checked);
 }
 </style>

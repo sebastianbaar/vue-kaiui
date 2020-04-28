@@ -7,7 +7,9 @@
         v-bind:tab-selectable="true"
         v-for="(tab, index) in tabs"
         v-bind:key="index"
+        v-bind:ref="`tabs_${refId}_${index}`"
         v-on:focus="selectTab(tab)"
+        v-on:click="onClick(tab, index)"
       >
         <span class="kaiui-tabs-header-tab-text">{{ tab.name }}</span>
       </div>
@@ -19,6 +21,8 @@
 </template>
 
 <script>
+import Utils from "../utils/Utils";
+
 export default {
   name: "kaiui-tabs",
   props: {},
@@ -26,13 +30,21 @@ export default {
     this.tabs = this.$children;
   },
   data: () => ({
-    tabs: []
+    tabs: [],
+    refId: Utils.uuid()
   }),
   methods: {
     selectTab(selectedTab) {
       this.tabs.forEach(tab => {
         tab.isActive = tab.name == selectedTab.name;
       });
+    },
+    onClick(tab, index) {
+      this.selectTab(tab);
+      this.$root.$emit(
+        "set-tab-element-selected",
+        this.$refs[`tabs_${this.refId}_${index}`][0]
+      );
     }
   }
 };
@@ -86,5 +98,6 @@ export default {
   .kaiui-tabs-header-tab
   .kaiui-tabs-header-tab-text {
   padding: 0 5px;
+  text-overflow: ellipsis;
 }
 </style>

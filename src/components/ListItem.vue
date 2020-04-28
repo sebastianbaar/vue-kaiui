@@ -5,6 +5,8 @@
     tabindex="0"
     v-on:focus="handleFocusChange(true)"
     v-on:blur="handleFocusChange(false)"
+    v-bind:ref="refId"
+    v-on:click="onClick()"
   >
     <span v-if="iconLeft && iconLeft!='none'" class="kaiui-listitem-icon" v-bind:class="iconLeft"></span>
     <div class="kaiui-listitem-text-wrapper">
@@ -21,6 +23,8 @@
 </template>
 
 <script>
+import Utils from "../utils/Utils";
+
 export default {
   name: "kaiui-list-item",
   props: {
@@ -63,7 +67,7 @@ export default {
       this.$emit("softCenter");
     });
   },
-  data: () => ({}),
+  data: () => ({ refId: Utils.uuid() }),
   methods: {
     handleFocusChange(isNowFocused) {
       if (isNowFocused) {
@@ -71,6 +75,10 @@ export default {
       } else {
         this.$root.$emit("update-softkeys-unregister");
       }
+    },
+    onClick() {
+      this.handleFocusChange(true);
+      this.$root.$emit("set-element-selected", this.$refs[this.refId]);
     }
   }
 };
@@ -98,6 +106,7 @@ export default {
   justify-content: center;
   height: 100%;
   overflow: hidden;
+  flex: 1;
 }
 
 .kaiui-listitem .kaiui-listitem-text-wrapper span {

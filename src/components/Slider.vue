@@ -6,6 +6,8 @@
     class="kaiui-slider"
     v-on:focus="handleFocusChange(true)"
     v-on:blur="handleFocusChange(false)"
+    v-bind:ref="refId"
+    v-on:click="onClick()"
   >
     <div class="kaiui-slider-text-container">
       <span class="kaiui-p_pri kaiui-slider-title">{{ title }}</span>
@@ -27,6 +29,8 @@
 </template>
 
 <script>
+import Utils from "../utils/Utils";
+
 export default {
   name: "kaiui-slider",
   props: {
@@ -78,7 +82,10 @@ export default {
       this.$emit("softCenter");
     });
   },
-  data: () => ({ value: 0 }),
+  data: () => ({
+    value: 0,
+    refId: Utils.uuid()
+  }),
   methods: {
     handleFocusChange(isNowFocused) {
       if (isNowFocused) {
@@ -90,6 +97,10 @@ export default {
     onInputChanged(newValue) {
       this.value = newValue;
       this.$emit("change", newValue);
+    },
+    onClick() {
+      this.handleFocusChange(true);
+      this.$root.$emit("set-element-selected", this.$refs[this.refId]);
     }
   }
 };

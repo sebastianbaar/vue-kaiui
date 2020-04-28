@@ -55,14 +55,20 @@ export default {
       this.hasHeader = isHeaderShown;
     });
 
+    // element onclick selection
+    this.$root.$on("set-tab-element-selected", element => {
+      Navigation.selectTabElement(element);
+    });
+    this.$root.$on("set-element-selected", element => {
+      Navigation.selectElement(element);
+    });
+
     // softkey handler
     this.$root.$on("update-softkeys-register", component => {
-      console.log("$on: update-softkeys-register", component);
       this.handleUpdateSoftkeyText(component.softkeys);
       this.currentSoftkeyComponent = component;
     });
     this.$root.$on("update-softkeys-unregister", () => {
-      console.log("$on: update-softkeys-unregister");
       this.handleUpdateSoftkeyUnregister();
       this.currentSoftkeyComponent = null;
     });

@@ -3,15 +3,19 @@
     <input
       class="kaiui-input-float-input"
       type="text"
-      v-on:keydown.enter="onEnter"
+      v-on:input="onInput"
       v-model="value"
       v-bind:nav-selectable="true"
+      v-bind:ref="refId"
+      v-on:click="onClick()"
     />
     <label class="kaiui-input-float-label">{{ label }}</label>
   </div>
 </template>
 
 <script>
+import Utils from "../utils/Utils";
+
 export default {
   name: "kaiui-input-float",
   props: {
@@ -20,13 +24,16 @@ export default {
       required: true
     }
   },
-  data: () => ({ value: "" }),
+  data: () => ({
+    value: "",
+    refId: Utils.uuid()
+  }),
   methods: {
-    onEnter() {
-      const isFocused = this.$refs.input.getAttribute('nav-selected');
-      if (!this.value.length || !isFocused) return;
-      this.$emit("onEnter", this.value);
-      this.value = "";
+    onInput() {
+      this.$emit("input", this.value);
+    },
+    onClick() {
+      this.$root.$emit("set-element-selected", this.$refs[this.refId]);
     }
   }
 };

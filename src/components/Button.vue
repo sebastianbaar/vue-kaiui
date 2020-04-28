@@ -5,6 +5,8 @@
     tabindex="0"
     v-on:focus="handleFocusChange(true)"
     v-on:blur="handleFocusChange(false)"
+    v-bind:ref="refId"
+    v-on:click="onClick()"
     v-bind:class="{'kaiui-button-reversed-icon': iconRight}"
   >
     <span v-if="icon" class="kaiui-button-icon" v-bind:class="icon"></span>
@@ -13,6 +15,8 @@
 </template>
 
 <script>
+import Utils from "../utils/Utils";
+
 export default {
   name: "kaiui-button",
   props: {
@@ -34,6 +38,7 @@ export default {
       required: false
     }
   },
+  data: () => ({ refId: Utils.uuid() }),
   mounted() {
     this.$on("softkey-left-pressed", () => {
       this.$emit("softLeft");
@@ -42,7 +47,7 @@ export default {
       this.$emit("softRight");
     });
     this.$on("softkey-center-pressed", () => {
-      this.$emit("softCenter");      
+      this.$emit("softCenter");
     });
   },
   methods: {
@@ -52,6 +57,10 @@ export default {
       } else {
         this.$root.$emit("update-softkeys-unregister");
       }
+    },
+    onClick() {
+      this.handleFocusChange(true);
+      this.$root.$emit("set-element-selected", this.$refs[this.refId]);
     }
   }
 };

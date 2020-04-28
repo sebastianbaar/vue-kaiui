@@ -8,12 +8,17 @@
       v-on:focus="handleFocusChange(true)"
       v-on:blur="handleFocusChange(false)"
       v-model="value"
+      v-on:input="onInput"
       v-bind:nav-selectable="true"
+      v-bind:ref="refId"
+      v-on:click="onClick()"
     ></textarea>
   </div>
 </template>
 
 <script>
+import Utils from "../utils/Utils";
+
 export default {
   name: "kaiui-input-multi",
   props: {
@@ -31,7 +36,10 @@ export default {
       required: true
     }
   },
-  data: () => ({ value: "" }),
+  data: () => ({
+    value: "",
+    refId: Utils.uuid()
+  }),
   mounted() {
     this.$on("softkey-left-pressed", () => {
       this.$emit("softLeft");
@@ -40,17 +48,24 @@ export default {
       this.$emit("softRight");
     });
     this.$on("softkey-center-pressed", () => {
-      this.$emit("softCenter");
-      this.value += "\n";
+      // this.$emit("softCenter");
+      this.value =  this.value + "\n";
     });
   },
   methods: {
+    onInput() {
+      this.$emit("input", this.value);
+    },
     handleFocusChange(isNowFocused) {
       if (isNowFocused) {
         this.$root.$emit("update-softkeys-register", this);
       } else {
         this.$root.$emit("update-softkeys-unregister");
       }
+    },
+    onClick() {
+      this.handleFocusChange(true);
+      this.$root.$emit("set-element-selected", this.$refs[this.refId]);
     }
   }
 };

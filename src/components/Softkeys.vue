@@ -27,15 +27,15 @@ export default {
   methods: {
     onKeyDown(event) {
       switch (event.key) {        
-        case ("SoftLeft", "F13", "7"):          
+        case ("SoftLeft", "F13"):          
           if (!this.softkeys.left || !this.component) return;
           this.component.$emit("softkey-left-pressed");
           break;
-        case ("SoftRight", "F15", "9"):
+        case ("SoftRight", "F15"):
           if (!this.softkeys.right || !this.component) return;
           this.component.$emit("softkey-right-pressed");
           break;
-        case ("Enter"):
+        case ("Enter", "F14"):
           if (!this.softkeys.center || !this.component) return;
           this.component.$emit("softkey-center-pressed");
           break;
