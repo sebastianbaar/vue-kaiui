@@ -22,7 +22,7 @@ new Vue({
 ```
 
 ## Usage / API
-See the [Components API docs](https://github.com/sebastianbaar/vue-kaiui/tree/master/docs/API.md) and the [sample App](https://github.com/sebastianbaar/vue-kaiui-sample) for usage examples.
+See the [Components API docs](https://github.com/sebastianbaar/vue-kaiui/tree/master/docs/) and the [sample App](https://github.com/sebastianbaar/vue-kaiui-sample) for usage examples.
 
 ### Styles
 You can simply override CSS Variables in your `App.vue`. Theme CSS Variables are found [here](https://github.com/sebastianbaar/vue-kaiui/tree/master/src/assets/css/theme.css).
