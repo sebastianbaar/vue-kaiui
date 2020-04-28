@@ -7,7 +7,7 @@ The `<kaiui-tab-item>` component.
 
 ## slots 
 
-- `default` 
+- `default` Use this slot to include components in a tab-item. 
 
 ## props 
 

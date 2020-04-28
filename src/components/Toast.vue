@@ -8,7 +8,7 @@
 
 <script>
 /**
- * The `<kaiui-toast>` component.
+ * **This component is automatically integrated as a Mixin. Just use `this.showToast("I'm a Toast")` in your components.**
  *
  * @author Sebastian Baar
  * @license MIT
@@ -16,11 +16,17 @@
 export default {
   name: "kaiui-toast",
   data: () => ({
+    /**
+     * @private
+     */
     title: "",
+    /**
+     * @private
+     */
     shouldShow: false
   }),
   methods: {
-    show(title, time) {
+    showToast(title, time) {
       if (this.shouldShow) return;
       if (title == null) return;
 

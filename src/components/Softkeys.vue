@@ -8,16 +8,25 @@
 
 <script>
 /**
- * @private
+ * **This component is automatically integrated in the `<kaiui-content>` component.**
+ *
+ * @author Sebastian Baar
+ * @license MIT
  */
 export default {
   name: "kaiui-softkeys",
   props: {
+    /**
+     * @private
+     */
     softkeys: {
       left: String,
       center: String,
       right: String
     },
+    /**
+     * @private
+     */
     component: {
       default: null,
       type: Object,
@@ -31,18 +40,30 @@ export default {
     document.addEventListener("keydown", this.onKeyDown);
   },
   methods: {
+    /**
+     * @private
+     */
     onKeyDown(event) {
       switch (event.key) {
         case ("SoftLeft", "F13"):
           if (!this.softkeys.left || !this.component) return;
+          /**
+           * @private
+           */
           this.component.$emit("softkey-left-pressed");
           break;
         case ("SoftRight", "F15"):
           if (!this.softkeys.right || !this.component) return;
+          /**
+           * @private
+           */
           this.component.$emit("softkey-right-pressed");
           break;
         case ("Enter", "F14"):
           if (!this.softkeys.center || !this.component) return;
+          /**
+           * @private
+           */
           this.component.$emit("softkey-center-pressed");
           break;
         default:

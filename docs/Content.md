@@ -1,43 +1,13 @@
 # kaiui-content 
 
-The `<kaiui-content>` component. 
+The `<kaiui-content>` component.
+
+**This is the root component of all other UI components. You HAVE TO put all other components inside of it.** 
 
 - **author** - Sebastian Baar 
 - **license** - MIT 
 
 ## slots 
 
-- `default` 
-
-## props 
-
-- `with-softkeys` ***Boolean*** (*optional*) `default: true` 
-
-## data 
-
-- `softkeys` 
-
-**initial value:** `[object Object]` 
-
-- `currentSoftkeyComponent` 
-
-**initial value:** `null` 
-
-- `hasHeader` 
-
-**initial value:** `false` 
-
-- `showSoftkeys` 
-
-**initial value:** `false` 
-
-## methods 
-
-- `onKeyDown(event)` 
-
-- `handleUpdateSoftkeyText(softkeys)` 
-
-- `handleUpdateSoftkeyUnregister()` 
-
-- `showToast(title, time)` 
+- `default` Use this slot to include all of your UI components. 
 

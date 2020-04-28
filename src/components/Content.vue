@@ -4,6 +4,7 @@
       class="kaiui-content-slot-content"
       v-bind:class="[{'kaiui-has-header': hasHeader}, {'kaiui-has-softkeys': showSoftkeys}]"
     >
+      <!-- Use this slot to include all of your UI components. -->
       <slot></slot>
 
       <kaiui-toast ref="toast" />
@@ -22,6 +23,8 @@
 <script>
 /**
  * The `<kaiui-content>` component.
+ * 
+ * **This is the root component of all other UI components. You HAVE TO put all other components inside of it.**
  *
  * @author Sebastian Baar
  * @license MIT
@@ -32,6 +35,9 @@ import Navigation from "../navigation/Navigation";
 export default {
   name: "kaiui-content",
   props: {
+    /**
+     * @private
+     */
     withSoftkeys: {
       type: Boolean,
       default: true,
@@ -39,13 +45,25 @@ export default {
     }
   },
   data: () => ({
+    /**
+     * @private
+     */
     softkeys: {
       left: "Left Key",
       center: "Select",
       right: "Right Key"
     },
+    /**
+     * @private
+     */
     currentSoftkeyComponent: null,
+    /**
+     * @private
+     */
     hasHeader: false,
+    /**
+     * @private
+     */
     showSoftkeys: false
   }),
   beforeDestroy() {
@@ -81,6 +99,9 @@ export default {
     });
   },
   methods: {
+    /**
+     * @private
+     */
     onKeyDown(event) {
       switch (event.key) {
         case "ArrowDown":
@@ -107,19 +128,28 @@ export default {
           break;
       }
     },
+    /**
+     * @private
+     */
     handleUpdateSoftkeyText(softkeys) {
       if (this.withSoftkeys) {
         this.showSoftkeys = true;
         this.softkeys = softkeys;
       }
     },
+    /**
+     * @private
+     */
     handleUpdateSoftkeyUnregister() {
       if (this.withSoftkeys) {
         this.showSoftkeys = false;
       }
     },
+    /**
+     * @private
+     */
     showToast(title, time) {
-      this.$refs.toast.show(title, time);
+      this.$refs.toast.showToast(title, time);
     }
   }
 };

@@ -1,21 +1,11 @@
 # kaiui-toast 
 
-The `<kaiui-toast>` component. 
+**This component is automatically integrated as a Mixin. Just use `this.showToast("I'm a Toast")` in your components.** 
 
 - **author** - Sebastian Baar 
 - **license** - MIT 
 
-## data 
-
-- `title` 
-
-**initial value:** `''` 
-
-- `shouldShow` 
-
-**initial value:** `false` 
-
 ## methods 
 
-- `show(title, time)` 
+- `showToast(title, time)` 
 

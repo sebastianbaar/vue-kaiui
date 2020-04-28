@@ -7,7 +7,7 @@ The `<kaiui-tabs>` component.
 
 ## slots 
 
-- `default` 
+- `default` Use this slot to set `<kaiui-tab-item>` components. 
 
 ## data 
 

@@ -15,6 +15,7 @@
       </div>
     </div>
     <div class="kaiui-tabs-slot-content">
+      <!-- Use this slot to set `<kaiui-tab-item>` components. -->
       <slot>Add some &#60;kaiui-tab-item&#62; items!</slot>
     </div>
   </div>

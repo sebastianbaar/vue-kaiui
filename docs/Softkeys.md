@@ -1,12 +1,9 @@
 # kaiui-softkeys 
 
-- **private** 
+**This component is automatically integrated in the `<kaiui-content>` component.** 
 
-## props 
-
-- `softkeys` ***[object Object]*** (*optional*) 
-
-- `component` ***Object*** (*required*) `default: null` 
+- **author** - Sebastian Baar 
+- **license** - MIT 
 
 ## events 
 
@@ -15,8 +12,4 @@
 - `softkey-right-pressed` 
 
 - `softkey-center-pressed` 
-
-## methods 
-
-- `onKeyDown(event)` 
 

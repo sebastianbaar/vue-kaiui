@@ -1,6 +1,7 @@
 <template>
   <div class="kaiui-tabitem-wrapper" v-if="isActive">
     <div class="kaiui-tabitem-slot-content">
+      <!-- Use this slot to include components in a tab-item. -->
       <slot></slot>
     </div>
   </div>
