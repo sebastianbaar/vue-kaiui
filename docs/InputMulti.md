@@ -1,5 +1,10 @@
 # kaiui-input-multi 
 
+The `<kaiui-input-multi>` component. 
+
+- **author** - Sebastian Baar 
+- **license** - MIT 
+
 ## props 
 
 - `softkeys` ***Object*** (*optional*) `default: [object Object]` 

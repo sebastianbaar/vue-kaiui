@@ -1,5 +1,10 @@
 # kaiui-input-float 
 
+The `<kaiui-input-float>` component. 
+
+- **author** - Sebastian Baar 
+- **license** - MIT 
+
 ## props 
 
 - `label` ***String*** (*required*) 

@@ -5,6 +5,12 @@
 </template>
 
 <script>
+/**
+ * The `<kaiui-header>` component.
+ *
+ * @author Sebastian Baar
+ * @license MIT
+ */
 export default {
   name: "kaiui-header",
   props: {

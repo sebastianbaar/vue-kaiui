@@ -7,6 +7,12 @@
 </template>
 
 <script>
+/**
+ * The `<kaiui-toast>` component.
+ *
+ * @author Sebastian Baar
+ * @license MIT
+ */
 export default {
   name: "kaiui-toast",
   data: () => ({

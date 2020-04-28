@@ -7,6 +7,12 @@
 </template>
 
 <script>
+/**
+ * The `<kaiui-tab-item>` component.
+ *
+ * @author Sebastian Baar
+ * @license MIT
+ */
 export default {
   name: "kaiui-tab-item",
   props: {

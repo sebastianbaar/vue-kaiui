@@ -1,5 +1,10 @@
 # kaiui-content 
 
+The `<kaiui-content>` component. 
+
+- **author** - Sebastian Baar 
+- **license** - MIT 
+
 ## slots 
 
 - `default` 

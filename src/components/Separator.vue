@@ -5,6 +5,12 @@
 </template>
 
 <script>
+/**
+ * The `<kaiui-separator>` component.
+ *
+ * @author Sebastian Baar
+ * @license MIT
+ */
 export default {
   name: "kaiui-separator",
   props: {

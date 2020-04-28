@@ -1,5 +1,10 @@
 # kaiui-tab-item 
 
+The `<kaiui-tab-item>` component. 
+
+- **author** - Sebastian Baar 
+- **license** - MIT 
+
 ## slots 
 
 - `default` 

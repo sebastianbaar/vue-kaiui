@@ -17,6 +17,12 @@
 </template>
 
 <script>
+/**
+ * The `<kaiui-input-multi>` component.
+ *
+ * @author Sebastian Baar
+ * @license MIT
+ */
 import Utils from "../utils/Utils";
 
 export default {

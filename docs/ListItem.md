@@ -1,5 +1,10 @@
 # kaiui-list-item 
 
+The `<kaiui-list-item>` component. 
+
+- **author** - Sebastian Baar 
+- **license** - MIT 
+
 ## props 
 
 - `softkeys` ***Object*** (*optional*) `default: [object Object]` 

@@ -1,5 +1,7 @@
 # kaiui-softkeys 
 
+- **private** 
+
 ## props 
 
 - `softkeys` ***[object Object]*** (*optional*) 

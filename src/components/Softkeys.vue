@@ -7,7 +7,9 @@
 </template>
 
 <script>
-
+/**
+ * @private
+ */
 export default {
   name: "kaiui-softkeys",
   props: {
@@ -30,8 +32,8 @@ export default {
   },
   methods: {
     onKeyDown(event) {
-      switch (event.key) {        
-        case ("SoftLeft", "F13"):          
+      switch (event.key) {
+        case ("SoftLeft", "F13"):
           if (!this.softkeys.left || !this.component) return;
           this.component.$emit("softkey-left-pressed");
           break;

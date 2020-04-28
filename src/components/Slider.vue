@@ -29,6 +29,12 @@
 </template>
 
 <script>
+/**
+ * The `<kaiui-slider>` component.
+ *
+ * @author Sebastian Baar
+ * @license MIT
+ */
 import Utils from "../utils/Utils";
 
 export default {

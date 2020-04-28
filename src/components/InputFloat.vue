@@ -14,6 +14,12 @@
 </template>
 
 <script>
+/**
+ * The `<kaiui-input-float>` component.
+ *
+ * @author Sebastian Baar
+ * @license MIT
+ */
 import Utils from "../utils/Utils";
 
 export default {

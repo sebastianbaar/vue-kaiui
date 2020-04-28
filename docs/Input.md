@@ -1,5 +1,10 @@
 # kaiui-input 
 
+The `<kaiui-input>` component. 
+
+- **author** - Sebastian Baar 
+- **license** - MIT 
+
 ## props 
 
 - `placeholder` ***String*** (*optional*) 

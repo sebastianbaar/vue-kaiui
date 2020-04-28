@@ -20,6 +20,13 @@
 </template>
 
 <script>
+/**
+ * The `<kaiui-content>` component.
+ *
+ * @author Sebastian Baar
+ * @license MIT
+ */
+
 import Navigation from "../navigation/Navigation";
 
 export default {
