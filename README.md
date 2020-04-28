@@ -21,8 +21,8 @@ new Vue({
 }).$mount('#app')
 ```
 
-## Usage
-See the [sample App](https://github.com/sebastianbaar/vue-kaiui-sample) for usage examples.
+## Usage / API
+See the [API docs](https://github.com/sebastianbaar/vue-kaiui/docs/API.md) and the [sample App](https://github.com/sebastianbaar/vue-kaiui-sample) for usage examples.
 
 ### Styles
 You can simply override CSS Variables in your `App.vue`. Theme CSS Variables are found [here](https://github.com/sebastianbaar/vue-kaiui/tree/master/src/assets/css/theme.css).

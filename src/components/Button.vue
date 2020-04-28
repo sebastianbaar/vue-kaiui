@@ -15,6 +15,12 @@
 </template>
 
 <script>
+/**
+ * The `<kaiui-button>` component.
+ *
+ * @author Sebastian Baar
+ * @license MIT
+ */
 import Utils from "../utils/Utils";
 
 export default {
@@ -38,7 +44,12 @@ export default {
       required: false
     }
   },
-  data: () => ({ refId: Utils.uuid() }),
+  data: () => ({
+    /**
+     * @private
+     */
+    refId: Utils.uuid()
+  }),
   mounted() {
     this.$on("softkey-left-pressed", () => {
       this.$emit("softLeft");
@@ -51,6 +62,9 @@ export default {
     });
   },
   methods: {
+    /**
+     * @private
+     */
     handleFocusChange(isNowFocused) {
       if (isNowFocused) {
         this.$root.$emit("update-softkeys-register", this);
@@ -58,6 +72,9 @@ export default {
         this.$root.$emit("update-softkeys-unregister");
       }
     },
+    /**
+     * @private
+     */
     onClick() {
       this.handleFocusChange(true);
       this.$root.$emit("set-element-selected", this.$refs[this.refId]);

@@ -25,7 +25,6 @@ import Utils from "../utils/Utils";
 
 export default {
   name: "kaiui-tabs",
-  props: {},
   mounted() {
     this.tabs = this.$children;
   },

@@ -16,7 +16,11 @@ export default {
       center: String,
       right: String
     },
-    component: null
+    component: {
+      default: null,
+      type: Object,
+      required: true
+    }
   },
   beforeDestroy() {
     document.removeEventListener("keydown", this.onKeyDown);
