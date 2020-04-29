@@ -14,7 +14,7 @@
     </div>
     <span
       class="kaiui-checkbox-icon"
-      v-bind:class="[isChecked ? 'kai-icon-checkbox-unchecked' : 'kai-icon-checkbox-checked']"
+      v-bind:class="[isChecked ? 'ion-android-checkbox-outline' : 'ion-android-checkbox-outline-blank']"
     ></span>
   </div>
 </template>
@@ -115,11 +115,11 @@ export default {
   color: var(--checkbox-listitem-selected-text-color);
 }
 .kaiui-checkbox[nav-selected="true"]
-  .kaiui-checkbox-icon.kai-icon-checkbox-unchecked:before {
+  .kaiui-checkbox-icon.ion-android-checkbox-outline-blank:before {
   color: var(--checkbox-listitem-icon-selected-color);
 }
 .kaiui-checkbox[nav-selected="true"]
-  .kaiui-checkbox-icon.kai-icon-checkbox-checked:before {
+  .kaiui-checkbox-icon.ion-android-checkbox-outline:before {
   color: var(--checkbox-listitem-icon-selected-checked-color);
 }
 

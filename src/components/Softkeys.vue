@@ -67,7 +67,7 @@ export default {
 
 <style scoped>
 .kaiui-softkeys {
-  z-index: 1000;
+  z-index: 9990;
   position: absolute;
   bottom: 0;
   left: 0;

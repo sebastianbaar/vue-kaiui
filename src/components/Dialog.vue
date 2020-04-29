@@ -5,11 +5,21 @@
         <span class="kaiui-dialog-header-title">{{ title }}</span>
       </div>
       <div class="kaiui-dialog-container">
-        <span v-if="text" class="kaiui-dialog-container-text">{{ text }}</span>
+        <span
+          v-if="text"
+          class="kaiui-dialog-container-text"
+          v-bind:nav-selectable="true"
+          tabindex="0"
+        >{{ text }}</span>
 
         <!-- TODO: Use this slot to include other UI components. -->
         <slot></slot>
       </div>
+    </div>
+    <div class="kaiui-softkeys">
+      <span class="kaiui-h5 kaiui-left">{{ softkeys.left }}</span>
+      <span class="kaiui-p_link kaiui-center">{{ softkeys.center }}</span>
+      <span class="kaiui-h5 kaiui-right">{{ softkeys.right }}</span>
     </div>
   </div>
 </template>
@@ -22,6 +32,7 @@
  * @license MIT
  */
 import Utils from "../utils/Utils";
+import Navigation from '../navigation/Navigation';
 
 export default {
   name: "kaiui-dialog",
@@ -68,27 +79,50 @@ export default {
      */
     show(value) {
       if (value) {
-        this.$root.$emit("update-softkeys-register", this);
-        this.$root.$emit("navigation-register", false);
+        this.lastActiveElement = Navigation.getCurrentElement();
+        this.$root.$emit("navigation-register", this.$el);
       } else {
-        this.$root.$emit("update-softkeys-unregister");
-        this.$root.$emit("navigation-register", true);
+        this.$root.$emit("navigation-unregister", this.lastActiveElement);
       }
     }
   },
-  mounted() {
-    this.$on("softkey-left-pressed", () => {
-      this.show = false;
-      this.$emit("softLeft");
-    });
-    this.$on("softkey-right-pressed", () => {
-      this.show = false;
-      this.$emit("softRight");
-    });
-    this.$on("softkey-center-pressed", () => {
-      this.show = false;
-      this.$emit("softCenter");
-    });
+  data: () => ({
+    /**
+     * @private
+     */
+    lastActiveElement: null,
+  }),
+  beforeDestroy() {
+    document.removeEventListener("keydown", this.onKeyDown);
+  },
+  mounted() {    
+    document.addEventListener("keydown", this.onKeyDown);
+  },
+  methods: {
+    /**
+     * @private
+     */
+    onKeyDown(event) {
+      switch (event.key) {
+        case ("SoftLeft", "F13", "7"):
+          if (!this.softkeys.left) return;          
+          this.$emit("softLeft");
+          this.show = false;
+          break;
+        case ("SoftRight", "F15", "9"):
+          if (!this.softkeys.right) return;
+          this.$emit("softRight");
+          this.show = false;
+          break;
+        case "Enter":
+          if (!this.softkeys.center) return;
+          this.$emit("softCenter");
+          this.show = false;
+          break;
+        default:
+          break;
+      }
+    }
   }
 };
 </script>
@@ -97,7 +131,7 @@ export default {
 .kaiui-dialog {
   z-index: 1001;
   position: absolute;
-  bottom: 30px;
+  bottom: 0;
   left: 0;
   right: 0;
   top: 0;
@@ -113,6 +147,7 @@ export default {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  margin-bottom: 30px;
   background: var(--dialog-background-color);
 }
 .kaiui-dialog .kaiui-dialog-wrapper .kaiui-dialog-header {
@@ -128,16 +163,67 @@ export default {
 }
 
 .kaiui-dialog .kaiui-dialog-wrapper .kaiui-dialog-container {
-  padding: 10px 10px 0 10px;
+  padding: 0;
   margin-bottom: 10px;
-  overflow: hidden;
+  overflow: scroll;
   display: flex;
   flex-direction: column;
+  max-height: 60vh;
 }
 
 .kaiui-dialog
   .kaiui-dialog-wrapper
   .kaiui-dialog-container
   .kaiui-dialog-container-text {
+    padding: 10px;
+}
+
+.kaiui-softkeys {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #cccccc !important;
+  min-height: 30px;
+  max-height: 30px;
+  background: white;
+  border-top: 2px #cbcbcb solid;
+  display: flex;
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding: 0 5px;
+  line-height: 26px;
+}
+
+.kaiui-left,
+.kaiui-right {
+  color: #242424;
+  overflow: hidden;
+  width: 100%;
+  letter-spacing: -0.5px;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+}
+
+.kaiui-left {
+  text-align: left;
+  padding-right: 5px;
+}
+
+.kaiui-center {
+  color: #242424;
+  text-transform: uppercase;
+  font-size: 18px;
+  text-align: center;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.kaiui-right {
+  text-align: right;
+  padding-left: 5px;
 }
 </style>

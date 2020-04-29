@@ -1,7 +1,18 @@
-const init = () => {
+var scope = null
+
+const init = (rootComponent) => {
+  removeAllNavigation()
+  scope = rootComponent
   initElements();
   initTabElements();
 };
+
+const removeAllNavigation = () => {
+  [].forEach.call(document.querySelectorAll("[nav-selectable]"), (element, index) => {
+    element.setAttribute("nav-selected", "false");
+    element.blur();
+  });
+}
 
 // Elements Navigation
 const initElements = () => {
@@ -16,9 +27,9 @@ const initElements = () => {
   firstElement.focus();
 };
 
-const getAllElements = () => document.querySelectorAll("[nav-selectable]");
+const getAllElements = () => scope.querySelectorAll("[nav-selectable]");
 
-const getCurrentElement = () => document.querySelector("[nav-selected=true]");
+const getCurrentElement = () => scope.querySelector("[nav-selected=true]");
 
 const getTheIndexOfTheSelectedElement = (current) => {
   const currentElement = current || getCurrentElement();
@@ -75,15 +86,16 @@ const Up = () => {
 // Tabbar Navigation
 const initTabElements = () => {
   const firstTabElement = getAllTabElements()[0];
+  if (!firstTabElement) return;
   firstTabElement.setAttribute("tab-selected", "true");
   firstTabElement.setAttribute("tab-index", "0");
   firstTabElement.focus();
 };
 
-const getAllTabElements = () => document.querySelectorAll("[tab-selectable]");
+const getAllTabElements = () => scope.querySelectorAll("[tab-selectable]");
 
 const getCurrentTabElement = () =>
-  document.querySelector("[tab-selected=true]");
+scope.querySelector("[tab-selected=true]");
 
 const getTheIndexOfTheSelectedTabElement = (current) => {
   const currentElement = current || getCurrentTabElement();

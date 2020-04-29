@@ -65,29 +65,24 @@ export default {
     /**
      * @private
      */
-    showSoftkeys: false,
-    /**
-     * @private
-     */
-    navigationRegistered: true
+    showSoftkeys: false
   }),
   beforeDestroy() {
     document.removeEventListener("keydown", this.onKeyDown);
   },
   mounted() {
     this.$nextTick(() => {
-      Navigation.init();
+      Navigation.init(this.$el);
     });
     document.addEventListener("keydown", this.onKeyDown);
 
     // navigation registration handler
-    this.$root.$on("navigation-register", shouldRegister => {
-      this.navigationRegistered = shouldRegister;
-
-      if (shouldRegister) {
-        // add focus on element
-        Navigation.getCurrentElement().click();
-      }
+    this.$root.$on("navigation-register", rootElement => {
+      Navigation.init(rootElement);
+    });
+    this.$root.$on("navigation-unregister", lastSelectedElement => {
+      Navigation.init(this.$el);
+      if (lastSelectedElement) Navigation.selectElement(lastSelectedElement);
     });
 
     // header handler
@@ -134,8 +129,6 @@ export default {
      * @private
      */
     onKeyDown(event) {
-      if (this.navigationRegistered == false) return;
-
       switch (event.key) {
         case "ArrowDown":
           Navigation.Down();
