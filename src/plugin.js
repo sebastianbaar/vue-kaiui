@@ -14,6 +14,7 @@ import ListItem from "./components/ListItem.vue";
 import Checkbox from "./components/Checkbox.vue";
 import Slider from "./components/Slider.vue";
 import Toast from "./components/Toast.vue";
+import Dialog from "./components/Dialog.vue";
 
 // CSS & KaiOS icons
 require("./assets/css/theme.css");
@@ -38,11 +39,12 @@ function install(Vue) {
   Vue.component(Checkbox.name, Checkbox);
   Vue.component(Slider.name, Slider);
   Vue.component(Toast.name, Toast);
+  Vue.component(Dialog.name, Dialog);
 
   Vue.mixin({
     methods: {
       showToast(title, time) {
-        this.$refs.content.showToast(title, time);
+        this.$root.$emit("showToast", { title: title, time: time} );
       },
     },
   });

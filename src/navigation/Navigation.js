@@ -228,6 +228,7 @@ export default {
   Right,
   Left,
   initElements,
+  getCurrentElement,
   selectElement,
   selectTabElement
 };

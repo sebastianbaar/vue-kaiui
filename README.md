@@ -175,7 +175,7 @@ See [Contributing](#contributing).
 - [ ] Slider (update Design!)
 - [ ] Option Menu
 - [ ] Value Selector
-- [ ] Dialog
+- [x] Dialog
 - [ ] Notice
 ## [Navigation](https://developer.kaiostech.com/design-guide/basic-navigation)
 - [x] List View

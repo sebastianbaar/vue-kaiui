@@ -23,7 +23,7 @@
 <script>
 /**
  * The `<kaiui-content>` component.
- * 
+ *
  * **This is the root component of all other UI components. You HAVE TO put all other components inside of it.**
  *
  * @author Sebastian Baar
@@ -64,7 +64,11 @@ export default {
     /**
      * @private
      */
-    showSoftkeys: false
+    showSoftkeys: false,
+    /**
+     * @private
+     */
+    navigationRegistered: true
   }),
   beforeDestroy() {
     document.removeEventListener("keydown", this.onKeyDown);
@@ -75,12 +79,22 @@ export default {
     });
     document.addEventListener("keydown", this.onKeyDown);
 
+    // navigation registration handler
+    this.$root.$on("navigation-register", shouldRegister => {
+      this.navigationRegistered = shouldRegister;
+
+      if (shouldRegister) {
+        // add focus on element
+        Navigation.getCurrentElement().click();
+      }
+    });
+
     // header handler
     this.$root.$on("update-header-registered", isHeaderShown => {
       this.hasHeader = isHeaderShown;
     });
 
-    // element onclick selection
+    // element onclick selection handler
     this.$root.$on("set-tab-element-selected", element => {
       Navigation.selectTabElement(element);
     });
@@ -97,12 +111,21 @@ export default {
       this.handleUpdateSoftkeyUnregister();
       this.currentSoftkeyComponent = null;
     });
+
+    // toast handler
+    this.$root.$on("showToast", payload => {
+      const title = payload.title;
+      const time = payload.time;
+      this.showToast(title, time);
+    });
   },
   methods: {
     /**
      * @private
      */
     onKeyDown(event) {
+      if (this.navigationRegistered == false) return;
+
       switch (event.key) {
         case "ArrowDown":
           Navigation.Down();

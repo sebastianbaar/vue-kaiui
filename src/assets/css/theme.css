@@ -68,6 +68,9 @@ body,
   --input-placeholder-color: #9b9b9b;
 
   --toast-background-color: #323232;
+
+  --dialog-background-color: var(--light-color);
+  --dialog-header-background-color: var(--secondary-dark-color);
 }
 
 /* KaiOS Typography*/
