@@ -14,7 +14,11 @@
 
 <script>
 /**
- * **This component is automatically integrated as a Mixin. Just use `this.showNotice("ion-battery-empty", "Battery Full", "Battery is fully charged")` in your components.**
+ * **This component is automatically integrated as a Mixin. Just use**
+ *  
+ * `this.showNotice("ion-battery-empty", "Battery Full", "Battery is fully charged")` 
+ * 
+ * **in your components.**
  *
  * @author Sebastian Baar
  * @license MIT
