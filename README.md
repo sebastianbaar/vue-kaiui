@@ -147,9 +147,10 @@ You can simply override CSS variables in your global CSS or in scoped styles. Al
 <style>
 
 :root{
-  --primary-color: red;
+  --primary-color: red !important; 
+  --primary-dark-color: darkred !important;
   ...
-  --tabbar-tabs-selected-color: blue;
+  --tabbar-tabs-selected-color: blue !important;
   ...
 }
 
