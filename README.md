@@ -1,9 +1,8 @@
 ![Logo of vue-kaiui](./screenshots/vue-kaios-logo.png)
 
-**Vue component library for KaiOS apps. All components and views are navigable using a phone's d-pad and softkeys.**
+<p align="center"><font size="+3">Vue component library for KaiOS apps.</font></p>
 
 ---
-
 
 - [Installation](#installation)
 - [Usage / API](#usage--api)
