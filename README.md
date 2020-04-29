@@ -1,8 +1,7 @@
 ![Logo of vue-kaiui](./screenshots/vue-kaios-logo.png)
 
-<p align="center"><font size="+3">Vue component library for KaiOS apps.</font></p>
+> **Vue component library for KaiOS apps.**
 
----
 
 - [Installation](#installation)
 - [Usage / API](#usage--api)
