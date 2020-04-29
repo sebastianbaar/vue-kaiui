@@ -15,6 +15,7 @@ import Checkbox from "./components/Checkbox.vue";
 import Slider from "./components/Slider.vue";
 import Toast from "./components/Toast.vue";
 import Dialog from "./components/Dialog.vue";
+import Notice from "./components/Notice.vue";
 
 // CSS & KaiOS icons
 require("./assets/css/theme.css");
@@ -40,11 +41,22 @@ function install(Vue) {
   Vue.component(Slider.name, Slider);
   Vue.component(Toast.name, Toast);
   Vue.component(Dialog.name, Dialog);
+  Vue.component(Notice.name, Notice);
 
   Vue.mixin({
     methods: {
       showToast(title, time) {
-        this.$root.$emit("showToast", { title: title, time: time} );
+        this.$root.$emit("showToast", { title: title, time: time });
+      },
+      showNotice(icon, title, subtitle) {
+        this.$root.$emit("showNotice", {
+          icon: icon,
+          title: title,
+          subtitle: subtitle,
+        });
+      },
+      hideNotice() {
+        this.$root.$emit("hideNotice");
       },
     },
   });

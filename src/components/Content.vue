@@ -7,10 +7,11 @@
       <!-- Use this slot to include all of your UI components. -->
       <slot></slot>
 
-      <kaiui-toast ref="toast" />
+      <kaiui-toast ref="kaiuitoast" />
+      <kaiui-notice ref="kaiuinotice" />
       <transition name="fade">
         <kaiui-softkeys
-          ref="softkeys"
+          ref="kaiuisoftkeys"
           v-if="withSoftkeys && showSoftkeys"
           v-bind:softkeys="softkeys"
           v-bind:component="currentSoftkeyComponent"
@@ -118,6 +119,15 @@ export default {
       const time = payload.time;
       this.showToast(title, time);
     });
+
+    // notice handler
+    this.$root.$on("showNotice", payload => {
+      const icon = payload.icon;
+      const title = payload.title;
+      const subtitle = payload.subtitle;
+      const time = payload.time;
+      this.showNoticeComponent(icon, title, subtitle, time);
+    });
   },
   methods: {
     /**
@@ -172,7 +182,13 @@ export default {
      * @private
      */
     showToast(title, time) {
-      this.$refs.toast.showToast(title, time);
+      this.$refs.kaiuitoast.show(title, time);
+    },
+    /**
+     * @private
+     */
+    showNoticeComponent(icon, title, subtitle, time) {
+      this.$refs.kaiuinotice.show(icon, title, subtitle, time);
     }
   }
 };

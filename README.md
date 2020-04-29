@@ -177,7 +177,7 @@ See [Contributing](#contributing).
 - [ ] Option Menu
 - [ ] Value Selector
 - [x] Dialog
-- [ ] Notice
+- [x] Notice
 ## [Navigation](https://developer.kaiostech.com/design-guide/basic-navigation)
 - [x] List View
 - [x] Tab View

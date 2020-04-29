@@ -16,17 +16,15 @@
 export default {
   name: "kaiui-toast",
   data: () => ({
-    /**
-     * @private
-     */
     title: "",
+    time: 2500,
     /**
      * @private
      */
     shouldShow: false
   }),
   methods: {
-    showToast(title, time) {
+    show(title, time) {
       if (this.shouldShow) return;
       if (title == null) return;
 
@@ -36,7 +34,7 @@ export default {
         () => {
           this.shouldShow = false;
         },
-        time ? time : 4000
+        time && !isNaN(time) ? time : 2500
       );
     }
   }

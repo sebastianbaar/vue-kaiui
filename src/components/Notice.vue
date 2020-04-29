@@ -1,14 +1,20 @@
 <template>
   <transition name="fade">
     <div class="kaiui-notice" v-show="shouldShow">
-      <span class="kaiui-h1 kaiui-notice-text">{{ title }}</span>
+      <div class="kaiui-notice-icon-wrapper">
+        <span class="kaiui-notice-icon" v-bind:class="icon"></span>
+      </div>
+      <div class="kaiui-notice-text-wrapper">
+        <span class="kaiui-p_pri kaiui-notice-title">{{ title }}</span>
+        <span class="kaiui-p_sec kaiui-notice-subtitle">{{ subtitle }}</span>
+      </div>
     </div>
   </transition>
 </template>
 
 <script>
 /**
- * **This component is automatically integrated as a Mixin. Just use `this.showNotice("Battery Full", "Battery is fully charged")` in your components.**
+ * **This component is automatically integrated as a Mixin. Just use `this.showNotice("ion-battery-empty", "Battery Full", "Battery is fully charged")` in your components.**
  *
  * @author Sebastian Baar
  * @license MIT
@@ -16,27 +22,28 @@
 export default {
   name: "kaiui-notice",
   data: () => ({
-    /**
-     * @private
-     */
+    icon: "",
     title: "",
+    subtitle: "",
+    time: 4000,
     /**
      * @private
      */
     shouldShow: false
   }),
   methods: {
-    showToast(title, time) {
+    show(icon, title, subtitle, time) {
       if (this.shouldShow) return;
-      if (title == null) return;
-
+      if (icon == null || title == null || subtitle == null) return;
+      this.icon = icon;
       this.title = title;
+      this.subtitle = subtitle;
       this.shouldShow = true;
       setTimeout(
         () => {
           this.shouldShow = false;
         },
-        time ? time : 4000
+        time && !isNaN(time) ? time : 4000
       );
     }
   }
@@ -54,19 +61,49 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--toast-background-color);
-  padding: 10px;
+  background-color: var(--secondary-color);
+  min-height: 60px;
+  max-height: 60px;
   -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
-.kaiui-notice-text {
+.kaiui-notice .kaiui-notice-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+  overflow: hidden;
+  flex: 1;
+  margin-left: 10px;
+}
+
+.kaiui-notice .kaiui-notice-text-wrapper span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kaiui-notice .kaiui-notice-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px;
+  height: 60px;
+  flex-shrink: 0;
+  background: var(--primary-color);
+}
+
+.kaiui-notice .kaiui-notice-icon-wrapper .kaiui-notice-icon {
+  color: var(--light-color);
+}
+
+/* .kaiui-toast-text {
   width: 100%;
   text-align: center;
   padding: 0 10px;
   color: var(--header-text-color);
-}
+} */
 
 .fade-enter-active,
 .fade-leave-active {

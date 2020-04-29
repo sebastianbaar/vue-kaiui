@@ -5,7 +5,17 @@
 - **author** - Sebastian Baar 
 - **license** - MIT 
 
+## data 
+
+- `title` 
+
+**initial value:** `''` 
+
+- `time` 
+
+**initial value:** `2500` 
+
 ## methods 
 
-- `showToast(title, time)` 
+- `show(title, time)` 
 
