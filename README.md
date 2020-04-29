@@ -24,8 +24,110 @@ new Vue({
 ## Usage / API
 See the [Components API docs](https://github.com/sebastianbaar/vue-kaiui/tree/master/docs/) and the [sample App](https://github.com/sebastianbaar/vue-kaiui-sample) for usage examples.
 
+Most importantly put all the components in the `<kaiui-content>` root so that the library can manage all the Softkeys and Header design elements for you. The structure may look like this:
+
+```html
+<template>
+  <kaiui-content> <!-- IMPORTANT root element -->
+    <kaiui-header title="ToDo List" />
+    <kaiui-tabs>
+      <kaiui-tab-item name="Item One" selected>
+        <kaiui-text
+          text="This is a standard Text element with a lot of Text in it. Hope you like it. Enjoy!"
+        />
+        <kaiui-input
+          v-on:input="onInputChanged"
+          label="Add a Task"
+          placeholder="New Item"
+        />
+        <kaiui-button
+          v-bind:softkeys="softkeysPhone"
+          v-on:softRight="phoneButtonSoftRightClicked"
+          v-on:softCenter="phoneButtonSoftCenterClicked"
+          icon="kai-icon-phone"
+          iconRight
+          title="Button Title"
+        />
+        <kaiui-button title="Button Title" />
+      </kaiui-tab-item>
+
+      <kaiui-tab-item name="Item Two">
+        <kaiui-list-item primaryText="List Item Title" />
+        <kaiui-list-item primaryText="List Item Title" iconLeft="kai-icon-download" />
+        <kaiui-list-item
+          primaryText="List Item Title"
+          secondaryText="Subtitle for List Item Title"
+          iconRight
+        />
+        <kaiui-list-item
+          primaryText="List Item Title"
+          secondaryText="Subtitle for List Item Title"
+          iconLeft="kai-icon-contacts"
+          iconRight="none"
+        />
+        <kaiui-list-item primaryText="List Item Title" iconLeft="kai-icon-favorite-on" />
+        <kaiui-list-item
+          primaryText="List Item Title"
+          secondaryText="Subtitle for List Item Title"
+          tertiaryText="Very very long Tertiary Text for List Item Title"
+          iconLeft="kai-icon-calendar"
+          iconRight="kai-icon-favorite-on"
+        />
+      </kaiui-tab-item>
+
+      <kaiui-tab-item name="Item Three">
+        <kaiui-checkbox
+          primaryText="Checkbox Item Title"
+          secondaryText="Subtitle for Checkbox List Item Title"
+          v-bind:isChecked="true"
+        />
+        <kaiui-checkbox primaryText="Checkbox Item Title" />
+      </kaiui-tab-item>
+
+      <kaiui-tab-item name="Item Four">
+        <kaiui-text text="Slider Fun..." />
+        <kaiui-separator title="Separator Title" />
+        <kaiui-slider
+          title="Alarm"
+          v-bind:startValue="sliderStartValue"
+          v-on:change="sliderValueChanged"
+          v-bind:minValue="0"
+          v-bind:maxValue="20"
+          v-bind:step="0.5"
+        />
+      </kaiui-tab-item>
+    </kaiui-tabs>
+  </kaiui-content>
+</template>
+
+<script>
+export default {
+  name: "app",
+  data: () => ({
+    softkeysPhone: { left: "What's App", center: "Call", right: "SMS" },
+    sliderStartValue: 10,
+    sliderTextValue: "Slider value is 10"
+  }),
+  methods: {
+    phoneButtonSoftRightClicked() {
+      this.showToast("SMS send!");
+    },
+    phoneButtonSoftCenterClicked() {
+      this.showToast("Calling Mom...!");
+    },
+    sliderValueChanged(value) {
+      this.sliderTextValue = "Slider value is " + value;
+    },
+    onInputChanged(newValue) {
+      console.log(newValue);
+    }
+  }
+};
+</script>
+```
+
 ### Styles
-You can simply override CSS Variables in your `App.vue`. Theme CSS Variables are found [here](https://github.com/sebastianbaar/vue-kaiui/tree/master/src/assets/css/theme.css).
+You can simply override CSS variables in your global CSS or in scoped styles. All theme CSS variables are found [here](https://github.com/sebastianbaar/vue-kaiui/tree/master/src/assets/css/theme.css).
 
 ```css
 <style>
@@ -74,16 +176,6 @@ You can simply override CSS Variables in your `App.vue`. Theme CSS Variables are
 - [ ] [Portrait/Landscape Mode](https://developer.kaiostech.com/core-developer-topics/supporting-multiple)
 
 
-## Notifications
-
-Notifications are provided by KaiOS itself when you use the standard [Notifications API](https://developer.mozilla.org/en-US/docs/Web/API/notification) while your app is running, or the [Push API](https://developer.mozilla.org/en-US/docs/Web/API/Push_API) if you want push notifications. Installed apps need to request permission for this through the manifest file. Just add this line to the permissions section of your `manifest.webapp` file.
-
-```
-"desktop-notification": {}
-```
-
-Once this is added, you can send the user notifications without needing to request permission.
-
 ## Styling, Colors, Fonts
 
 Typography details can be found [here](https://developer.kaiostech.com/design-guide/typography).
@@ -101,6 +193,16 @@ Icons are found in the [asset directory](https://github.com/sebastianbaar/vue-ka
 There's much work to be done on building out more UI components, writing tests, etc...
 
 Please look at currently [open issues](https://github.com/sebastianbaar/vue-kaiui/issues?q=is%3Aopen+is%3Aissue) and our [Contributing Guide](https://github.com/sebastianbaar/vue-kaiui/blob/master/CONTRIBUTING.md).
+
+To build & test the project run:
+
+`npm install`
+
+`npm run build`
+
+To build the project and create API docs run:
+
+`npm run release`
 
 ---
 

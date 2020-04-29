@@ -6,7 +6,7 @@
   "module": "dist/vue-kaiui.esm.js",
   "unpkg": "dist/vue-kaiui.min.js",
   "scripts": {
-    "build-prod": "vuedoc.md ./src/components/*.vue --output ./docs && npm run build",
+    "release": "vuedoc.md ./src/components/*.vue --output ./docs && npm run build",
     "build": "rimraf ./dist && npm run build:umd & npm run build:es & npm run build:unpkg",
     "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vue-kaiui.js",
     "build:es": "rollup --config build/rollup.config.js --format es --file dist/vue-kaiui.esm.js",
