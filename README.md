@@ -3,7 +3,22 @@
 # Vue KaiUI
 Vue component library for KaiOS apps. All components and views are navigable using a phone's d-pad and softkeys.
 
-## Installation
+
+- [Vue KaiUI](#vue-kaiui)
+- [Installation](#installation)
+- [Usage / API](#usage--api)
+  - [Example](#example)
+  - [Styles](#styles)
+- [Status](#status)
+  - [Components](#components)
+  - [Navigation](#navigation)
+  - [Typography](#typography)
+  - [Miscellaneous](#miscellaneous)
+- [Styling, Colors, Fonts](#styling-colors-fonts)
+- [Icons](#icons)
+- [Contributing](#contributing)
+
+# Installation
 ```
 npm install vue-kaiui
 ```
@@ -21,9 +36,10 @@ new Vue({
 }).$mount('#app')
 ```
 
-## Usage / API
+# Usage / API
 See the [Components API docs](https://github.com/sebastianbaar/vue-kaiui/tree/master/docs/) and the [sample App](https://github.com/sebastianbaar/vue-kaiui-sample) for usage examples.
 
+## Example
 Most importantly put all the components in the `<kaiui-content>` root so that the library can manage all the Softkeys and Header design elements for you. The structure may look like this:
 
 ```html
@@ -126,7 +142,7 @@ export default {
 </script>
 ```
 
-### Styles
+## Styles
 You can simply override CSS variables in your global CSS or in scoped styles. All theme CSS variables are found [here](https://github.com/sebastianbaar/vue-kaiui/tree/master/src/assets/css/theme.css).
 
 ```css
@@ -142,9 +158,10 @@ You can simply override CSS variables in your global CSS or in scoped styles. Al
 </style>
 ```
 
-## Status (see [Contributing](#contributing))
+# Status
+See [Contributing](#contributing).
 
-### [Components](https://developer.kaiostech.com/design-guide/ui-component)
+## [Components](https://developer.kaiostech.com/design-guide/ui-component)
 - [x] Header
 - [x] Tab
 - [x] Software Key
@@ -162,27 +179,27 @@ You can simply override CSS variables in your global CSS or in scoped styles. Al
 - [ ] Value Selector
 - [ ] Dialog
 - [ ] Notice
-### [Navigation](https://developer.kaiostech.com/design-guide/basic-navigation)
+## [Navigation](https://developer.kaiostech.com/design-guide/basic-navigation)
 - [x] List View
 - [x] Tab View
 - [ ] Grid View
-### [Typography](https://developer.kaiostech.com/design-guide/typography)
+## [Typography](https://developer.kaiostech.com/design-guide/typography)
 - [x] Fonts
 - [x] KaiOS Icons
-### Miscellaneous
+## Miscellaneous
 - [ ] [Theming](https://developer.kaiostech.com/getting-started/build-your-first-package-app/sample-code#theme-apps)
 - [ ] [Translation](https://developer.kaiostech.com/getting-started/build-your-first-package-app/sample-code#apps-with-translation--l10n)
 - [ ] [LargeText](https://developer.kaiostech.com/api/largetext)
 - [ ] [Portrait/Landscape Mode](https://developer.kaiostech.com/core-developer-topics/supporting-multiple)
 
 
-## Styling, Colors, Fonts
+# Styling, Colors, Fonts
 
 Typography details can be found [here](https://developer.kaiostech.com/design-guide/typography).
 
 Standardized stylings, colors and fonts are found in the [asset directory](https://github.com/sebastianbaar/vue-kaiui/tree/master/src/assets).
 
-## Icons
+# Icons
 
 KaiOS uses custom icons provided on the [KaiOS developer portal](https://developer.kaiostech.com/design-guide). 
 
