@@ -140,7 +140,6 @@ export default {
 .kaiui-listitem .kaiui-listitem-icon {
   display: flex;
   align-items: center;
-  font-size: 32px;
   margin-right: 10px;
   flex-shrink: 0;
 }

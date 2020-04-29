@@ -18,7 +18,7 @@ import Dialog from "./components/Dialog.vue";
 
 // CSS & KaiOS icons
 require("./assets/css/theme.css");
-require("./assets/kai-font/style.css");
+require("./assets/ionicons/css/style.css");
 
 function install(Vue) {
   if (install.installed) return;

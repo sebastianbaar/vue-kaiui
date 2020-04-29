@@ -200,7 +200,7 @@ Standardized stylings, colors and fonts are found in the [asset directory](https
 
 # Icons
 
-KaiOS uses custom icons provided on the [KaiOS developer portal](https://developer.kaiostech.com/design-guide). 
+Vue KaiUI uses the awesome [Ionicons](https://ionicons.com/) icons.
 
 Icons are found in the [asset directory](https://github.com/sebastianbaar/vue-kaiui/tree/master/src/assets).
 

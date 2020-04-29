@@ -10,7 +10,10 @@
     v-bind:class="{'kaiui-button-reversed-icon': iconRight}"
   >
     <span v-if="icon" class="kaiui-button-icon" v-bind:class="icon"></span>
-    <span class="kaiui-p_btn kaiui-button-title">{{ title }}</span>
+    <span
+      class="kaiui-p_btn kaiui-button-title"
+      v-bind:style="[icon ? iconRight ? {'margin-left': '40px'} : {'margin-right': '40px'} : {}]"
+    >{{ title }}</span>
   </div>
 </template>
 
@@ -104,13 +107,20 @@ export default {
 
 .kaiui-button .kaiui-button-title {
   text-align: center;
+  width: 100%;
   padding: 5px;
   color: var(--button-text-color);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .kaiui-button[nav-selected="true"] .kaiui-button-title {
   color: var(--button-selected-text-color);
 }
 
+.kaiui-button .kaiui-button-icon {
+  padding: 0 10px;
+}
 .kaiui-button .kaiui-button-icon:before {
   color: var(--button-icon-color);
 }
