@@ -17,19 +17,23 @@ import Utils from "../utils/Utils";
 export default {
   name: "kaiui-radiogroup",
   props: {
+    /**
+     * Use `v-model` to define a reactive value of the selected Radio Button
+     * @type {String | Number | Boolean}
+     */
     selectedValue: {
       default: null,
-      type: String|Number|Boolean,
-      required: true
-    }
+      type: String | Number | Boolean,
+      required: true,
+    },
   },
   model: {
     prop: "selectedValue",
-    event: "selectedValueChange"
+    event: "selectedValueChange",
   },
   mounted() {
     if (this.selectedValue) {
-      this.$slots.default.forEach(vNode => {
+      this.$slots.default.forEach((vNode) => {
         if (vNode.componentInstance.value == this.selectedValue) {
           vNode.componentInstance.isChecked = true;
         } else {
@@ -38,10 +42,13 @@ export default {
       });
     }
 
-    this.$on("radiobutton-selected", component => {
-      this.$slots.default.forEach(vNode => {
+    this.$on("radiobutton-selected", (component) => {
+      this.$slots.default.forEach((vNode) => {
         if (vNode.componentInstance == component) {
           vNode.componentInstance.isChecked = true;
+          /**
+           * @private
+           */
           this.$emit("selectedValueChange", vNode.componentInstance.value);
         } else {
           vNode.componentInstance.isChecked = false;

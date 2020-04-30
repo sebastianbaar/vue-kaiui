@@ -2,7 +2,10 @@
   <div class="kaiui-content-wrapper">
     <div
       class="kaiui-content-slot-content"
-      v-bind:class="[{'kaiui-has-header': hasHeader}, {'kaiui-has-softkeys': showSoftkeys}]"
+      v-bind:class="[
+        { 'kaiui-has-header': hasHeader },
+        { 'kaiui-has-softkeys': showSoftkeys },
+      ]"
     >
       <!-- Use this slot to include all of your UI components. -->
       <slot></slot>
@@ -42,8 +45,8 @@ export default {
     withSoftkeys: {
       type: Boolean,
       default: true,
-      required: false
-    }
+      required: false,
+    },
   },
   data: () => ({
     /**
@@ -52,7 +55,7 @@ export default {
     softkeys: {
       left: "Left Key",
       center: "Select",
-      right: "Right Key"
+      right: "Right Key",
     },
     /**
      * @private
@@ -65,7 +68,7 @@ export default {
     /**
      * @private
      */
-    showSoftkeys: false
+    showSoftkeys: false,
   }),
   beforeDestroy() {
     document.removeEventListener("keydown", this.onKeyDown);
@@ -80,31 +83,31 @@ export default {
     document.addEventListener("keydown", this.onKeyDown);
 
     // navigation registration handler
-    this.$root.$on("navigation-register", rootElement => {
+    this.$root.$on("navigation-register", (rootElement) => {
       Navigation.setCurrentScope(rootElement);
-      Navigation.initElements()
+      Navigation.initElements();
     });
-    this.$root.$on("navigation-unregister", lastSelectedElement => {
+    this.$root.$on("navigation-unregister", (lastSelectedElement) => {
       Navigation.setCurrentScope(this.$el);
-      Navigation.initElements()
+      Navigation.initElements();
       if (lastSelectedElement) Navigation.selectElement(lastSelectedElement);
     });
 
     // header handler
-    this.$root.$on("update-header-registered", isHeaderShown => {
+    this.$root.$on("update-header-registered", (isHeaderShown) => {
       this.hasHeader = isHeaderShown;
     });
 
     // element onclick selection handler
-    this.$root.$on("set-tab-element-selected", element => {
+    this.$root.$on("set-tab-element-selected", (element) => {
       Navigation.selectTabElement(element);
     });
-    this.$root.$on("set-element-selected", element => {
+    this.$root.$on("set-element-selected", (element) => {
       Navigation.selectElement(element);
     });
 
     // softkey handler
-    this.$root.$on("update-softkeys-register", component => {
+    this.$root.$on("update-softkeys-register", (component) => {
       this.handleUpdateSoftkeyText(component.softkeys);
       this.currentSoftkeyComponent = component;
     });
@@ -114,14 +117,14 @@ export default {
     });
 
     // toast handler
-    this.$root.$on("showToast", payload => {
+    this.$root.$on("showToast", (payload) => {
       const title = payload.title;
       const time = payload.time;
       this.showToast(title, time);
     });
 
     // notice handler
-    this.$root.$on("showNotice", payload => {
+    this.$root.$on("showNotice", (payload) => {
       const icon = payload.icon;
       const title = payload.title;
       const subtitle = payload.subtitle;
@@ -187,8 +190,8 @@ export default {
      */
     showNoticeComponent(icon, title, subtitle, time) {
       this.$refs.kaiuinotice.show(icon, title, subtitle, time);
-    }
-  }
+    },
+  },
 };
 </script>
 

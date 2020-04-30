@@ -14,11 +14,14 @@
 export default {
   name: "kaiui-text",
   props: {
+    /**
+     * The Text
+     */
     text: {
       type: String,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>
 

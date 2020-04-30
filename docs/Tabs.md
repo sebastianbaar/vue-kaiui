@@ -9,23 +9,7 @@ The `<kaiui-tabs>` component.
 
 - `default` Use this slot to set `<kaiui-tab-item>` components. 
 
-## data 
-
-- `tabs` 
-
-**initial value:** `[object Object]` 
-
-- `refId` 
-
-**initial value:** `[object Object]` 
-
 ## events 
 
 - `set-tab-element-selected` 
-
-## methods 
-
-- `selectTab(selectedTab)` 
-
-- `onClick(tab, index)` 
 

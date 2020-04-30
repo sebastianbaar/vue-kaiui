@@ -39,7 +39,7 @@ function install(Vue) {
   Vue.component(Tabs.name, Tabs);
   Vue.component(TabItem.name, TabItem);
   Vue.component(ListItem.name, ListItem);
-  Vue.component(Checkbox.name, Checkbox);  
+  Vue.component(Checkbox.name, Checkbox);
   Vue.component(RadioGroup.name, RadioGroup);
   Vue.component(RadioButton.name, RadioButton);
   Vue.component(Slider.name, Slider);

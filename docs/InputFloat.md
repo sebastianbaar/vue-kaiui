@@ -9,25 +9,19 @@ The `<kaiui-input-float>` component.
 
 - `label` ***String*** (*required*) 
 
+  The Input Label 
+
 ## data 
 
 - `value` 
 
 **initial value:** `''` 
 
-- `refId` 
-
-**initial value:** `[object Object]` 
-
 ## events 
 
 - `input` 
 
+  Emit the event `input` with `value` when the input value changes 
+
 - `set-element-selected` 
-
-## methods 
-
-- `onInput()` 
-
-- `onClick()` 
 

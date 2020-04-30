@@ -30,24 +30,35 @@ import Navigation from "../navigation/Navigation";
 export default {
   name: "kaiui-dialog",
   props: {
+    /**
+     * Use `v-model` to define a reactive value to hide/show the dialog
+     */
     shouldShow: {
       default: false,
       type: Boolean,
-      required: true
+      required: true,
     },
+    /**
+     * The Softkeys Object
+     * @type {{ left: String, center: String, right: String }}
+     * @default { center: "Select" }
+     */
     softkeys: {
       default: () => ({ left: "Cancel", right: "OK" }),
       type: Object,
-      required: false
+      required: false,
     },
+    /**
+     * The Title
+     */
     title: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   model: {
     prop: "shouldShow",
-    event: "shouldShowChange"
+    event: "shouldShowChange",
   },
   computed: {
     /**
@@ -59,8 +70,8 @@ export default {
       },
       set(value) {
         this.$emit("shouldShowChange", value);
-      }
-    }
+      },
+    },
   },
   watch: {
     /**
@@ -73,13 +84,13 @@ export default {
       } else {
         this.$root.$emit("navigation-unregister", this.lastActiveElement);
       }
-    }
+    },
   },
   data: () => ({
     /**
      * @private
      */
-    lastActiveElement: null
+    lastActiveElement: null,
   }),
   beforeDestroy() {
     document.removeEventListener("keydown", this.onKeyDown);
@@ -88,37 +99,38 @@ export default {
     document.addEventListener("keydown", this.onKeyDown);
 
     // intercept child softkey handler
-    this.$root.$on("update-softkeys-register", component => {
+    this.$root.$on("update-softkeys-register", (component) => {
       if (Navigation.getCurrentScope() !== this.$el) return;
       component.softkeys.left = this.softkeys.left;
       component.softkeys.right = this.softkeys.right;
     });
   },
   methods: {
-    /**
-     * @private
-     */
     onKeyDown(event) {
       if (Navigation.getCurrentScope() !== this.$el) return;
-
-      // this.updateChildSoftkeys();
 
       switch (event.key) {
         case ("SoftLeft", "F13", "7"):
           if (!this.softkeys.left) return;
+          /**
+           * Emit the event `softLeft` when left softkey is selected
+           */
           this.$emit("softLeft");
           this.show = false;
           break;
         case ("SoftRight", "F15", "9"):
           if (!this.softkeys.right) return;
+          /**
+           * Emit the event `softRight` when right softkey is selected
+           */
           this.$emit("softRight");
           this.show = false;
           break;
         default:
           break;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -9,6 +9,8 @@ The `<kaiui-header>` component.
 
 - `title` ***String*** (*required*) 
 
+  The Title 
+
 ## events 
 
 - `update-header-registered` 

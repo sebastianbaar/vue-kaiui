@@ -26,27 +26,48 @@ import Utils from "../utils/Utils";
 export default {
   name: "kaiui-input",
   props: {
+    /**
+     * The Placeholder
+     */
     placeholder: {
       type: String,
-      required: false
+      required: false,
     },
+    /**
+     * The Input Label
+     */
     label: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   data: () => ({
     value: "",
-    refId: Utils.uuid()
+    /**
+     * @private
+     */
+    refId: Utils.uuid(),
   }),
   methods: {
+    /**
+     * @private
+     */
     onInput() {
+      /**
+       * Emit the event `input` with `value` when the input value changes
+       */
       this.$emit("input", this.value);
     },
+    /**
+     * @private
+     */
     onClick() {
+      /**
+       * @private
+       */
       this.$root.$emit("set-element-selected", this.$refs[this.refId]);
-    }
-  }
+    },
+  },
 };
 </script>
 

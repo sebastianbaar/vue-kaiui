@@ -7,35 +7,43 @@ The `<kaiui-slider>` component.
 
 ## props 
 
-- `softkeys` ***Object*** (*optional*) `default: [object Object]` 
+- `softkeys` ***{ left: String, center: String, right: String }*** (*optional*) `default: { center: "Select" }` 
+
+  The Softkeys Object 
 
 - `title` ***String*** (*required*) 
 
+  The Title 
+
 - `start-value` ***Number*** (*optional*) 
+
+  The Start Value 
 
 - `step` ***Number*** (*required*) `default: 1` 
 
+  The Step Value 
+
 - `min-value` ***Number*** (*required*) `default: 1` 
+
+  The Minimum Value 
 
 - `max-value` ***Number*** (*required*) `default: 10` 
 
-## data 
-
-- `value` 
-
-**initial value:** `0` 
-
-- `refId` 
-
-**initial value:** `[object Object]` 
+  The Maximum Value 
 
 ## events 
 
 - `softLeft` 
 
+  Emit the event `softLeft` when left softkey is selected 
+
 - `softRight` 
 
+  Emit the event `softRight` when right softkey is selected 
+
 - `softCenter` 
+
+  Emit the event `softCenter` when center softkey is selected 
 
 - `update-softkeys-register` 
 
@@ -43,13 +51,7 @@ The `<kaiui-slider>` component.
 
 - `change` 
 
+  Emit the event `change` with `value` when the Slider input value changes 
+
 - `set-element-selected` 
-
-## methods 
-
-- `handleFocusChange(isNowFocused)` 
-
-- `onInputChanged(newValue)` 
-
-- `onClick()` 
 

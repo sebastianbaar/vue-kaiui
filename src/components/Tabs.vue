@@ -36,23 +36,38 @@ export default {
     this.tabs = this.$children;
   },
   data: () => ({
+    /**
+     * @private
+     */
     tabs: [],
-    refId: Utils.uuid()
+    /**
+     * @private
+     */
+    refId: Utils.uuid(),
   }),
   methods: {
+    /**
+     * @private
+     */
     selectTab(selectedTab) {
-      this.tabs.forEach(tab => {
+      this.tabs.forEach((tab) => {
         tab.isActive = tab.name == selectedTab.name;
       });
     },
+    /**
+     * @private
+     */
     onClick(tab, index) {
       this.selectTab(tab);
+      /**
+       * @private
+       */
       this.$root.$emit(
         "set-tab-element-selected",
         this.$refs[`tabs_${this.refId}_${index}`][0]
       );
-    }
-  }
+    },
+  },
 };
 </script>
 

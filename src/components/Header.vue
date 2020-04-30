@@ -14,19 +14,28 @@
 export default {
   name: "kaiui-header",
   props: {
+    /**
+     * The Title
+     */
     title: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   mounted() {
     this.$nextTick(() => {
+      /**
+       * @private
+       */
       this.$root.$emit("update-header-registered", true);
     });
   },
   beforeDestroy() {
+    /**
+     * @private
+     */
     this.$root.$emit("update-header-registered", false);
-  }
+  },
 };
 </script>
 

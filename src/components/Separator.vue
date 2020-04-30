@@ -14,11 +14,14 @@
 export default {
   name: "kaiui-separator",
   props: {
+    /**
+     * The Title
+     */
     title: {
       type: String,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>
 

@@ -11,9 +11,7 @@ The `<kaiui-radiogroup>` component.
 
 ## props 
 
-- `selected-value` ***[object Object]*** (*required*) `default: null` 
+- `selected-value` ***String | Number | Boolean*** (*required*) `default: null` 
 
-## events 
-
-- `selectedValueChange` 
+  Use `v-model` to define a reactive value of the selected Radio Button 
 

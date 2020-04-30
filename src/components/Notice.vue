@@ -15,9 +15,9 @@
 <script>
 /**
  * **This component is automatically integrated as a Mixin. Just use**
- *  
- * `this.showNotice("ion-battery-empty", "Battery Full", "Battery is fully charged")` 
- * 
+ *
+ * `this.showNotice("ion-battery-empty", "Battery Full", "Battery is fully charged")`
+ *
  * **in your components.**
  *
  * @author Sebastian Baar
@@ -26,16 +26,39 @@
 export default {
   name: "kaiui-notice",
   data: () => ({
+    /**
+     * The Icon CSS class
+     * ***String*** (*required*)
+     * `default: ''`
+     */
     icon: "",
+    /**
+     * The Title
+     * ***String*** (*required*)
+     * `default: ''`
+     */
     title: "",
+    /**
+     * The Subtitle
+     * ***String*** (*required*)
+     * `default: ''`
+     */
     subtitle: "",
+    /**
+     * The Time in ms
+     * ***Number*** (*optional*)
+     * `default: 4000`
+     */
     time: 4000,
     /**
      * @private
      */
-    shouldShow: false
+    shouldShow: false,
   }),
   methods: {
+    /**
+     * @private
+     */
     show(icon, title, subtitle, time) {
       if (this.shouldShow) return;
       if (icon == null || title == null || subtitle == null) return;
@@ -49,8 +72,8 @@ export default {
         },
         time && !isNaN(time) ? time : 4000
       );
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -76,7 +99,7 @@ export default {
 .kaiui-notice .kaiui-notice-text-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;  
+  justify-content: center;
   overflow: hidden;
   flex: 1;
   margin-left: 10px;

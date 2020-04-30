@@ -9,12 +9,20 @@
     v-on:click="onClick()"
   >
     <div class="kaiui-checkbox-text-wrapper">
-      <span class="kaiui-p_pri kaiui-checkbox-primary-text">{{ primaryText }}</span>
-      <span class="kaiui-p_sec kaiui-checkbox-secondary-text">{{ secondaryText }}</span>
+      <span class="kaiui-p_pri kaiui-checkbox-primary-text">{{
+        primaryText
+      }}</span>
+      <span class="kaiui-p_sec kaiui-checkbox-secondary-text">{{
+        secondaryText
+      }}</span>
     </div>
     <span
       class="kaiui-checkbox-icon"
-      v-bind:class="[isChecked ? 'ion-android-checkbox-outline' : 'ion-android-checkbox-outline-blank']"
+      v-bind:class="[
+        isChecked
+          ? 'ion-android-checkbox-outline'
+          : 'ion-android-checkbox-outline-blank',
+      ]"
     ></span>
   </div>
 </template>
@@ -31,28 +39,48 @@ import Utils from "../utils/Utils";
 export default {
   name: "kaiui-checkbox",
   props: {
+    /**
+     * The Softkeys Object
+     * @type {{ left: String, center: String, right: String }}
+     * @default { center: "Select" }
+     */
     softkeys: {
       default: () => ({ center: "Select" }),
       type: Object,
-      required: false
+      required: false,
     },
+    /**
+     * The Primary Text
+     */
     primaryText: {
       type: String,
-      required: true
+      required: true,
     },
+    /**
+     * The Secondary Text
+     */
     secondaryText: {
       type: String,
-      required: false
-    }
+      required: false,
+    },
   },
   mounted() {
     this.$on("softkey-left-pressed", () => {
+      /**
+       * Emit the event `softLeft` when left softkey is selected
+       */
       this.$emit("softLeft");
     });
     this.$on("softkey-right-pressed", () => {
+      /**
+       * Emit the event `softRight` when right softkey is selected
+       */
       this.$emit("softRight");
     });
     this.$on("softkey-center-pressed", () => {
+      /**
+       * Emit the event `softCenter` when center softkey is selected
+       */
       this.$emit("softCenter");
       this.isChecked = !this.isChecked;
       if (
@@ -64,8 +92,14 @@ export default {
     });
   },
   data: () => ({
+    /**
+     * @private
+     */
     isChecked: false,
-    refId: Utils.uuid()
+    /**
+     * @private
+     */
+    refId: Utils.uuid(),
   }),
   methods: {
     handleFocusChange(isNowFocused) {
@@ -78,8 +112,8 @@ export default {
     onClick() {
       this.handleFocusChange(true);
       this.$root.$emit("set-element-selected", this.$refs[this.refId]);
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -20,7 +20,17 @@
 export default {
   name: "kaiui-toast",
   data: () => ({
+    /**
+     * The Title
+     * ***String*** (*required*)
+     * `default: ''`
+     */
     title: "",
+    /**
+     * The Time in ms
+     * ***Number*** (*optional*)
+     * `default: 2500`
+     */
     time: 2500,
     /**
      * @private
@@ -29,7 +39,7 @@ export default {
     /**
      * @private
      */
-    timeout: false
+    timeout: false,
   }),
   methods: {
     show(title, time) {
@@ -46,8 +56,8 @@ export default {
         },
         time && !isNaN(time) ? time : 2500
       );
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -9,3 +9,5 @@ The `<kaiui-text>` component.
 
 - `text` ***String*** (*required*) 
 
+  The Text 
+

@@ -13,9 +13,17 @@
 
 - `title` 
 
+  The Title
+  ***String*** (*required*)
+  `default: ''` 
+
 **initial value:** `''` 
 
 - `time` 
+
+  The Time in ms
+  ***Number*** (*optional*)
+  `default: 2500` 
 
 **initial value:** `2500` 
 

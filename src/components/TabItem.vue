@@ -17,22 +17,30 @@
 export default {
   name: "kaiui-tab-item",
   props: {
+    /**
+     * The Name
+     */
     name: {
       type: String,
-      required: true
+      required: true,
     },
+    /**
+     * If the Tab Item should be selected
+     */
     selected: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   mounted() {
     this.isActive = this.selected;
   },
   data: () => ({
-    isActive: false
+    /**
+     * @private
+     */
+    isActive: false,
   }),
-  methods: {}
 };
 </script>
 

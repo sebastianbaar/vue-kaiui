@@ -28,52 +28,93 @@ import Utils from "../utils/Utils";
 export default {
   name: "kaiui-input-multi",
   props: {
+    /**
+     * The Softkeys Object
+     * @type {{ left: String, center: String, right: String }}
+     * @default { center: "Select" }
+     */
     softkeys: {
       default: () => ({ center: "Enter" }),
       type: Object,
-      required: false
+      required: false,
     },
+    /**
+     * The Placeholder
+     */
     placeholder: {
       type: String,
-      required: false
+      required: false,
     },
+    /**
+     * The Input Label
+     */
     label: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   data: () => ({
     value: "",
-    refId: Utils.uuid()
+    /**
+     * @private
+     */
+    refId: Utils.uuid(),
   }),
   mounted() {
     this.$on("softkey-left-pressed", () => {
+      /**
+       * Emit the event `softLeft` when left softkey is selected
+       */
       this.$emit("softLeft");
     });
     this.$on("softkey-right-pressed", () => {
+      /**
+       * Emit the event `softRight` when right softkey is selected
+       */
       this.$emit("softRight");
     });
     this.$on("softkey-center-pressed", () => {
       // this.$emit("softCenter");
-      this.value =  this.value + "\n";
+      this.value = this.value + "\n";
     });
   },
   methods: {
+    /**
+     * @private
+     */
     onInput() {
+      /**
+       * Emit the event `input` with `value` when the input value changes
+       */
       this.$emit("input", this.value);
     },
+    /**
+     * @private
+     */
     handleFocusChange(isNowFocused) {
       if (isNowFocused) {
+        /**
+         * @private
+         */
         this.$root.$emit("update-softkeys-register", this);
       } else {
+        /**
+         * @private
+         */
         this.$root.$emit("update-softkeys-unregister");
       }
     },
+    /**
+     * @private
+     */
     onClick() {
       this.handleFocusChange(true);
+      /**
+       * @private
+       */
       this.$root.$emit("set-element-selected", this.$refs[this.refId]);
-    }
-  }
+    },
+  },
 };
 </script>
 

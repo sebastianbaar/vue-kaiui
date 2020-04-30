@@ -1,4 +1,10 @@
-let scope = null;
+var scope = null;
+
+/**
+ * --------------------
+ * Scope & Init Methods
+ * --------------------
+ */
 
 const getCurrentScope = () => {
   return scope;
@@ -24,7 +30,11 @@ const removeAllNavigation = () => {
   );
 };
 
-// Elements Navigation
+/**
+ * --------------------
+ * Elements Navigation
+ * --------------------
+ */
 const initElements = () => {
   [].forEach.call(getAllElements(), (element, index) => {
     element.setAttribute("nav-selected", "false");
@@ -94,7 +104,11 @@ const Up = () => {
   selectElement(allElements[setIndex] || allElements[0]);
 };
 
-// Tabbar Navigation
+/**
+ * --------------------
+ * Tabbar Navigation
+ * --------------------
+ */
 const initTabElements = () => {
   const firstTabElement = getAllTabElements()[0];
   if (!firstTabElement) return;

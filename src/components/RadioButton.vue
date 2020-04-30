@@ -9,12 +9,20 @@
     v-on:click="onClick()"
   >
     <div class="kaiui-radiobutton-text-wrapper">
-      <span class="kaiui-p_pri kaiui-radiobutton-primary-text">{{ primaryText }}</span>
-      <span class="kaiui-p_sec kaiui-radiobutton-secondary-text">{{ secondaryText }}</span>
+      <span class="kaiui-p_pri kaiui-radiobutton-primary-text">{{
+        primaryText
+      }}</span>
+      <span class="kaiui-p_sec kaiui-radiobutton-secondary-text">{{
+        secondaryText
+      }}</span>
     </div>
     <span
       class="kaiui-radiobutton-icon"
-      v-bind:class="[isChecked ? 'ion-android-radio-button-on' : 'ion-android-radio-button-off']"
+      v-bind:class="[
+        isChecked
+          ? 'ion-android-radio-button-on'
+          : 'ion-android-radio-button-off',
+      ]"
     ></span>
   </div>
 </template>
@@ -31,53 +39,100 @@ import Utils from "../utils/Utils";
 export default {
   name: "kaiui-radiobutton",
   props: {
+    /**
+     * The Softkeys Object
+     * @type {{ left: String, center: String, right: String }}
+     * @default { center: "Select" }
+     */
     softkeys: {
       default: () => ({ center: "Select" }),
       type: Object,
-      required: false
+      required: false,
     },
+    /**
+     * The Value
+     */
     value: {
       type: String,
-      required: true
+      required: true,
     },
+    /**
+     * The Primary Text
+     */
     primaryText: {
       type: String,
-      required: true
+      required: true,
     },
+    /**
+     * The Secondary Text
+     */
     secondaryText: {
       type: String,
-      required: false
-    }
+      required: false,
+    },
   },
   mounted() {
     this.$on("softkey-left-pressed", () => {
+      /**
+       * Emit the event `softLeft` when left softkey is selected
+       */
       this.$emit("softLeft");
     });
     this.$on("softkey-right-pressed", () => {
+      /**
+       * Emit the event `softRight` when right softkey is selected
+       */
       this.$emit("softRight");
     });
     this.$on("softkey-center-pressed", () => {
+      /**
+       * @private
+       */
       this.$parent.$emit("radiobutton-selected", this);
+      /**
+       * Emit the event `softCenter` when center softkey is selected
+       */
       this.$emit("softCenter", this);
     });
   },
   data: () => ({
+    /**
+     * @private
+     */
     isChecked: false,
-    refId: Utils.uuid()
+    /**
+     * @private
+     */
+    refId: Utils.uuid(),
   }),
   methods: {
+    /**
+     * @private
+     */
     handleFocusChange(isNowFocused) {
       if (isNowFocused) {
+        /**
+         * @private
+         */
         this.$root.$emit("update-softkeys-register", this);
       } else {
+        /**
+         * @private
+         */
         this.$root.$emit("update-softkeys-unregister");
       }
     },
+    /**
+     * @private
+     */
     onClick() {
       this.handleFocusChange(true);
+      /**
+       * @private
+       */
       this.$root.$emit("set-element-selected", this.$refs[this.refId]);
-    }
-  }
+    },
+  },
 };
 </script>
 

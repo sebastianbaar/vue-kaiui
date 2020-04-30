@@ -7,13 +7,20 @@
     v-on:blur="handleFocusChange(false)"
     v-bind:ref="refId"
     v-on:click="onClick()"
-    v-bind:class="{'kaiui-button-reversed-icon': iconRight}"
+    v-bind:class="{ 'kaiui-button-reversed-icon': iconRight }"
   >
     <span v-if="icon" class="kaiui-button-icon" v-bind:class="icon"></span>
     <span
       class="kaiui-p_btn kaiui-button-title"
-      v-bind:style="[icon ? iconRight ? {'margin-left': '40px'} : {'margin-right': '40px'} : {}]"
-    >{{ title }}</span>
+      v-bind:style="[
+        icon
+          ? iconRight
+            ? { 'margin-left': '40px' }
+            : { 'margin-right': '40px' }
+          : {},
+      ]"
+      >{{ title }}</span
+    >
   </div>
 </template>
 
@@ -29,45 +36,65 @@ import Utils from "../utils/Utils";
 export default {
   name: "kaiui-button",
   props: {
+    /**
+     * The Softkeys Object
+     * @type {{ left: String, center: String, right: String }}
+     * @default { center: "Select" }
+     */
     softkeys: {
       default: () => ({ center: "Select" }),
       type: Object,
-      required: false
+      required: false,
     },
+    /**
+     * The Title
+     */
     title: {
       type: String,
-      required: true
+      required: true,
     },
+    /**
+     * The Icon CSS class
+     */
     icon: {
       type: String,
-      required: false
+      required: false,
     },
+    /**
+     * If the Icon should be displayed on the right side
+     */
     iconRight: {
       type: Boolean,
-      required: false
-    }
+      required: false,
+    },
   },
   data: () => ({
     /**
      * @private
      */
-    refId: Utils.uuid()
+    refId: Utils.uuid(),
   }),
   mounted() {
     this.$on("softkey-left-pressed", () => {
+      /**
+       * Emit the event `softLeft` when left softkey is selected
+       */
       this.$emit("softLeft");
     });
     this.$on("softkey-right-pressed", () => {
+      /**
+       * Emit the event `softRight` when right softkey is selected
+       */
       this.$emit("softRight");
     });
     this.$on("softkey-center-pressed", () => {
+      /**
+       * Emit the event `softCenter` when center softkey is selected
+       */
       this.$emit("softCenter");
     });
   },
   methods: {
-    /**
-     * @private
-     */
     handleFocusChange(isNowFocused) {
       if (isNowFocused) {
         this.$root.$emit("update-softkeys-register", this);
@@ -75,14 +102,11 @@ export default {
         this.$root.$emit("update-softkeys-unregister");
       }
     },
-    /**
-     * @private
-     */
     onClick() {
       this.handleFocusChange(true);
       this.$root.$emit("set-element-selected", this.$refs[this.refId]);
-    }
-  }
+    },
+  },
 };
 </script>
 

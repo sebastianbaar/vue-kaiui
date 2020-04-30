@@ -22,7 +22,7 @@ export default {
     softkeys: {
       left: String,
       center: String,
-      right: String
+      right: String,
     },
     /**
      * @private
@@ -30,8 +30,8 @@ export default {
     component: {
       default: null,
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   beforeDestroy() {
     document.removeEventListener("keydown", this.onKeyDown);
@@ -47,21 +47,30 @@ export default {
       switch (event.key) {
         case ("SoftLeft", "F13", "7"):
           if (!this.softkeys.left || !this.component) return;
+          /**
+           * @private
+           */
           this.component.$emit("softkey-left-pressed");
           break;
         case ("SoftRight", "F15", "9"):
           if (!this.softkeys.right || !this.component) return;
+          /**
+           * @private
+           */
           this.component.$emit("softkey-right-pressed");
           break;
         case "Enter":
           if (!this.softkeys.center || !this.component) return;
+          /**
+           * @private
+           */
           this.component.$emit("softkey-center-pressed");
           break;
         default:
           break;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

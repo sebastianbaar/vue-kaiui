@@ -8,14 +8,24 @@
     v-bind:ref="refId"
     v-on:click="onClick()"
   >
-    <span v-if="iconLeft && iconLeft!='none'" class="kaiui-listitem-icon" v-bind:class="iconLeft"></span>
+    <span
+      v-if="iconLeft && iconLeft != 'none'"
+      class="kaiui-listitem-icon"
+      v-bind:class="iconLeft"
+    ></span>
     <div class="kaiui-listitem-text-wrapper">
-      <span class="kaiui-p_pri kaiui-listitem-primary-text">{{ primaryText }}</span>
-      <span class="kaiui-p_sec kaiui-listitem-secondary-text">{{ secondaryText }}</span>
-      <span class="kaiui-p_thi kaiui-listitem-tertiary-text">{{ tertiaryText }}</span>
+      <span class="kaiui-p_pri kaiui-listitem-primary-text">{{
+        primaryText
+      }}</span>
+      <span class="kaiui-p_sec kaiui-listitem-secondary-text">{{
+        secondaryText
+      }}</span>
+      <span class="kaiui-p_thi kaiui-listitem-tertiary-text">{{
+        tertiaryText
+      }}</span>
     </div>
     <span
-      v-if="iconRight && iconRight!='none'"
+      v-if="iconRight && iconRight != 'none'"
       class="kaiui-listitem-icon right"
       v-bind:class="iconRight"
     ></span>
@@ -34,59 +44,108 @@ import Utils from "../utils/Utils";
 export default {
   name: "kaiui-list-item",
   props: {
+    /**
+     * The Softkeys Object
+     * @type {{ left: String, center: String, right: String }}
+     * @default { center: "Select" }
+     */
     softkeys: {
       default: () => ({ center: "Select" }),
       type: Object,
-      required: false
+      required: false,
     },
+    /**
+     * The Primary Text
+     */
     primaryText: {
       type: String,
-      required: true
+      required: true,
     },
+    /**
+     * The Secondary Text
+     */
     secondaryText: {
       type: String,
-      required: false
+      required: false,
     },
+    /**
+     * The Tertiary Text
+     */
     tertiaryText: {
       type: String,
-      required: false
+      required: false,
     },
+    /**
+     * The Left Icon CSS class
+     */
     iconLeft: {
       default: "none",
       type: String,
-      required: false
+      required: false,
     },
+    /**
+     * The Right Icon CSS class
+     */
     iconRight: {
       default: "kai-icon-arrow",
       type: String,
-      required: false
-    }
+      required: false,
+    },
   },
   mounted() {
     this.$on("softkey-left-pressed", () => {
+      /**
+       * Emit the event `softLeft` when left softkey is selected
+       */
       this.$emit("softLeft");
     });
     this.$on("softkey-right-pressed", () => {
+      /**
+       * Emit the event `softRight` when right softkey is selected
+       */
       this.$emit("softRight");
     });
     this.$on("softkey-center-pressed", () => {
+      /**
+       * Emit the event `softCenter` when center softkey is selected
+       */
       this.$emit("softCenter");
     });
   },
-  data: () => ({ refId: Utils.uuid() }),
+  data: () => ({
+    /**
+     * @private
+     */
+    refId: Utils.uuid(),
+  }),
   methods: {
+    /**
+     * @private
+     */
     handleFocusChange(isNowFocused) {
       if (isNowFocused) {
+        /**
+         * @private
+         */
         this.$root.$emit("update-softkeys-register", this);
       } else {
+        /**
+         * @private
+         */
         this.$root.$emit("update-softkeys-unregister");
       }
     },
+    /**
+     * @private
+     */
     onClick() {
       this.handleFocusChange(true);
+      /**
+       * @private
+       */
       this.$root.$emit("set-element-selected", this.$refs[this.refId]);
-    }
-  }
+    },
+  },
 };
 </script>
 

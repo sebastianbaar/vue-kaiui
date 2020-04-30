@@ -13,11 +13,9 @@ The `<kaiui-tab-item>` component.
 
 - `name` ***String*** (*required*) 
 
+  The Name 
+
 - `selected` ***Boolean*** (*optional*) `default: false` 
 
-## data 
-
-- `isActive` 
-
-**initial value:** `false` 
+  If the Tab Item should be selected 
 

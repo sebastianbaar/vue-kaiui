@@ -13,21 +13,33 @@
 
 - `icon` 
 
+  The Icon CSS class
+  ***String*** (*required*)
+  `default: ''` 
+
 **initial value:** `''` 
 
 - `title` 
+
+  The Title
+  ***String*** (*required*)
+  `default: ''` 
 
 **initial value:** `''` 
 
 - `subtitle` 
 
+  The Subtitle
+  ***String*** (*required*)
+  `default: ''` 
+
 **initial value:** `''` 
 
 - `time` 
 
+  The Time in ms
+  ***Number*** (*optional*)
+  `default: 4000` 
+
 **initial value:** `4000` 
-
-## methods 
-
-- `show(icon, title, subtitle, time)` 
 

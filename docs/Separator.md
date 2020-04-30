@@ -9,3 +9,5 @@ The `<kaiui-separator>` component.
 
 - `title` ***String*** (*required*) 
 
+  The Title 
+
