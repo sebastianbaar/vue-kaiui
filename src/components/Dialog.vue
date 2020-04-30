@@ -86,6 +86,13 @@ export default {
   },
   mounted() {
     document.addEventListener("keydown", this.onKeyDown);
+
+    // intercept child softkey handler
+    this.$root.$on("update-softkeys-register", component => {
+      if (Navigation.getCurrentScope() !== this.$el) return;
+      component.softkeys.left = this.softkeys.left;
+      component.softkeys.right = this.softkeys.right;
+    });
   },
   methods: {
     /**
@@ -93,6 +100,8 @@ export default {
      */
     onKeyDown(event) {
       if (Navigation.getCurrentScope() !== this.$el) return;
+
+      // this.updateChildSoftkeys();
 
       switch (event.key) {
         case ("SoftLeft", "F13", "7"):
@@ -103,11 +112,6 @@ export default {
         case ("SoftRight", "F15", "9"):
           if (!this.softkeys.right) return;
           this.$emit("softRight");
-          this.show = false;
-          break;
-        case "Enter":
-          if (!this.softkeys.center) return;
-          this.$emit("softCenter");
           this.show = false;
           break;
         default:

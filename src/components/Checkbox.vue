@@ -55,6 +55,12 @@ export default {
     this.$on("softkey-center-pressed", () => {
       this.$emit("softCenter");
       this.isChecked = !this.isChecked;
+      if (
+        this.softkeys.center == "Select" ||
+        this.softkeys.center == "Deselect"
+      ) {
+        this.softkeys.center = this.isChecked ? "Deselect" : "Select";
+      }
     });
   },
   data: () => ({

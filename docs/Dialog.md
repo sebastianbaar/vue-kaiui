@@ -7,7 +7,7 @@ The `<kaiui-dialog>` component.
 
 ## slots 
 
-- `default` TODO: Use this slot to include other UI components. 
+- `default` Use this slot to include other UI components. 
 
 ## props 
 
@@ -17,13 +17,9 @@ The `<kaiui-dialog>` component.
 
 - `title` ***String*** (*required*) 
 
-- `text` ***String*** (*optional*) 
-
 ## events 
 
 - `softLeft` 
 
 - `softRight` 
-
-- `softCenter` 
 

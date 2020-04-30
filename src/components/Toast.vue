@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div class="kaiui-toast" v-show="shouldShow">
+    <div class="kaiui-toast" v-if="shouldShow">
       <span class="kaiui-h1 kaiui-toast-text">{{ title }}</span>
     </div>
   </transition>

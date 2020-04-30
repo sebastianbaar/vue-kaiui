@@ -174,9 +174,8 @@ See [Contributing](#contributing).
 - [x] Radio Button (Group)
 - [ ] Progress
 - [ ] Slider (update Design!)
-- [ ] Option Menu
-- [ ] Value Selector
-- [x] Dialog
+- [ ] Date/Time Value Selector
+- [x] Dialog / Value Selector / Option Menu
 - [x] Notice
 ## [Navigation](https://developer.kaiostech.com/design-guide/basic-navigation)
 - [x] List View

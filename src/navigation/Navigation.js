@@ -1,4 +1,4 @@
-var scope = null;
+let scope = null;
 
 const getCurrentScope = () => {
   return scope;
@@ -35,6 +35,7 @@ const initElements = () => {
   firstElement.setAttribute("nav-selected", "true");
   firstElement.setAttribute("nav-index", "0");
   firstElement.focus();
+  firstElement.click();
 };
 
 const getAllElements = () => scope.querySelectorAll("[nav-selectable]");

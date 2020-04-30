@@ -74,6 +74,8 @@ export default {
     this.$nextTick(() => {
       Navigation.setCurrentScope(this.$el);
       Navigation.init();
+
+      Navigation.getCurrentElement().click();
     });
     document.addEventListener("keydown", this.onKeyDown);
 

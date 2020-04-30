@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div class="kaiui-notice" v-show="shouldShow">
+    <div class="kaiui-notice" v-if="shouldShow">
       <div class="kaiui-notice-icon-wrapper">
         <span class="kaiui-notice-icon" v-bind:class="icon"></span>
       </div>

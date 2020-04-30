@@ -42,7 +42,7 @@ export default {
   flex-direction: column;
   height: 100%;
   flex: 1;
-  min-width: 0;
+  min-width: 100%;
 }
 .kaiui-tabitem-wrapper .kaiui-tabitem-slot-content {
   display: flex;
