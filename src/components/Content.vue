@@ -72,16 +72,19 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      Navigation.init(this.$el);
+      Navigation.setCurrentScope(this.$el);
+      Navigation.init();
     });
     document.addEventListener("keydown", this.onKeyDown);
 
     // navigation registration handler
     this.$root.$on("navigation-register", rootElement => {
-      Navigation.init(rootElement);
+      Navigation.setCurrentScope(rootElement);
+      Navigation.initElements()
     });
     this.$root.$on("navigation-unregister", lastSelectedElement => {
-      Navigation.init(this.$el);
+      Navigation.setCurrentScope(this.$el);
+      Navigation.initElements()
       if (lastSelectedElement) Navigation.selectElement(lastSelectedElement);
     });
 

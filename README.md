@@ -171,7 +171,7 @@ See [Contributing](#contributing).
 - [x] Input
 - [x] Multiple-line Input
 - [x] Toast
-- [ ] Radio Button (Group)
+- [x] Radio Button (Group)
 - [ ] Progress
 - [ ] Slider (update Design!)
 - [ ] Option Menu
@@ -184,7 +184,7 @@ See [Contributing](#contributing).
 - [ ] Grid View
 ## [Typography](https://developer.kaiostech.com/design-guide/typography)
 - [x] Fonts
-- [x] KaiOS Icons
+- [x] Ionicons icons
 ## Miscellaneous
 - [ ] [Theming](https://developer.kaiostech.com/getting-started/build-your-first-package-app/sample-code#theme-apps)
 - [ ] [Translation](https://developer.kaiostech.com/getting-started/build-your-first-package-app/sample-code#apps-with-translation--l10n)

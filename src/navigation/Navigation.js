@@ -1,18 +1,28 @@
-var scope = null
+var scope = null;
 
-const init = (rootComponent) => {
-  removeAllNavigation()
-  scope = rootComponent
+const getCurrentScope = () => {
+  return scope;
+};
+
+const setCurrentScope = (rootComponent) => {
+  removeAllNavigation();
+  scope = rootComponent;
+};
+
+const init = () => {
   initElements();
   initTabElements();
 };
 
 const removeAllNavigation = () => {
-  [].forEach.call(document.querySelectorAll("[nav-selectable]"), (element, index) => {
-    element.setAttribute("nav-selected", "false");
-    element.blur();
-  });
-}
+  [].forEach.call(
+    document.querySelectorAll("[nav-selectable]"),
+    (element, index) => {
+      element.setAttribute("nav-selected", "false");
+      element.blur();
+    }
+  );
+};
 
 // Elements Navigation
 const initElements = () => {
@@ -54,7 +64,7 @@ const selectElement = (selectElement) => {
       element.scrollIntoView({
         block: "center",
         inline: "center",
-        behavior: "smooth"
+        behavior: "smooth",
       });
     } else {
       element.blur();
@@ -94,8 +104,7 @@ const initTabElements = () => {
 
 const getAllTabElements = () => scope.querySelectorAll("[tab-selectable]");
 
-const getCurrentTabElement = () =>
-scope.querySelector("[tab-selected=true]");
+const getCurrentTabElement = () => scope.querySelector("[tab-selected=true]");
 
 const getTheIndexOfTheSelectedTabElement = (current) => {
   const currentElement = current || getCurrentTabElement();
@@ -120,7 +129,7 @@ const selectTabElement = (selectElement) => {
       element.scrollIntoView({
         block: "center",
         inline: "center",
-        behavior: "smooth"
+        behavior: "smooth",
       });
     } else {
       element.blur();
@@ -234,6 +243,8 @@ const shouldBeHandledByElement = (direction) => {
 };
 
 export default {
+  getCurrentScope,
+  setCurrentScope,
   init,
   Up,
   Down,
@@ -242,5 +253,5 @@ export default {
   initElements,
   getCurrentElement,
   selectElement,
-  selectTabElement
+  selectTabElement,
 };

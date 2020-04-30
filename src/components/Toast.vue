@@ -9,9 +9,9 @@
 <script>
 /**
  * **This component is automatically integrated as a Mixin. Just use**
- *  
- * `this.showToast("I'm a Toast")` 
- * 
+ *
+ * `this.showToast("I'm a Toast")`
+ *
  * **in your components.**
  *
  * @author Sebastian Baar
@@ -25,16 +25,22 @@ export default {
     /**
      * @private
      */
-    shouldShow: false
+    shouldShow: false,
+    /**
+     * @private
+     */
+    timeout: false
   }),
   methods: {
     show(title, time) {
-      if (this.shouldShow) return;
+      if (this.shouldShow && this.timeout) {
+        clearTimeout(this.timeout);
+      }
       if (title == null) return;
 
       this.title = title;
       this.shouldShow = true;
-      setTimeout(
+      this.timeout = setTimeout(
         () => {
           this.shouldShow = false;
         },

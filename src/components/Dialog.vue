@@ -5,14 +5,7 @@
         <span class="kaiui-dialog-header-title">{{ title }}</span>
       </div>
       <div class="kaiui-dialog-container">
-        <span
-          v-if="text"
-          class="kaiui-dialog-container-text"
-          v-bind:nav-selectable="true"
-          tabindex="0"
-        >{{ text }}</span>
-
-        <!-- TODO: Use this slot to include other UI components. -->
+        <!-- Use this slot to include other UI components. -->
         <slot></slot>
       </div>
     </div>
@@ -32,7 +25,7 @@
  * @license MIT
  */
 import Utils from "../utils/Utils";
-import Navigation from '../navigation/Navigation';
+import Navigation from "../navigation/Navigation";
 
 export default {
   name: "kaiui-dialog",
@@ -50,10 +43,6 @@ export default {
     title: {
       type: String,
       required: true
-    },
-    text: {
-      type: String,
-      required: false
     }
   },
   model: {
@@ -90,12 +79,12 @@ export default {
     /**
      * @private
      */
-    lastActiveElement: null,
+    lastActiveElement: null
   }),
   beforeDestroy() {
     document.removeEventListener("keydown", this.onKeyDown);
   },
-  mounted() {    
+  mounted() {
     document.addEventListener("keydown", this.onKeyDown);
   },
   methods: {
@@ -103,9 +92,11 @@ export default {
      * @private
      */
     onKeyDown(event) {
+      if (Navigation.getCurrentScope() !== this.$el) return;
+
       switch (event.key) {
         case ("SoftLeft", "F13", "7"):
-          if (!this.softkeys.left) return;          
+          if (!this.softkeys.left) return;
           this.$emit("softLeft");
           this.show = false;
           break;
@@ -169,13 +160,6 @@ export default {
   display: flex;
   flex-direction: column;
   max-height: 60vh;
-}
-
-.kaiui-dialog
-  .kaiui-dialog-wrapper
-  .kaiui-dialog-container
-  .kaiui-dialog-container-text {
-    padding: 10px;
 }
 
 .kaiui-softkeys {
