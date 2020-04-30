@@ -19,7 +19,7 @@ import Toast from "./components/Toast.vue";
 import Dialog from "./components/Dialog.vue";
 import Notice from "./components/Notice.vue";
 
-// CSS & KaiOS icons
+// CSS & Ionicons icons
 require("./assets/css/theme.css");
 require("./assets/ionicons/css/style.css");
 

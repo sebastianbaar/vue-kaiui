@@ -17,9 +17,7 @@ export default {
     }),
     buble(), // Transpile to ES5
     copy({
-      targets: [
-        { src: "src/assets", dest: "dist" }
-      ],
+      targets: [{ src: "src/assets", dest: "dist" }],
     }),
   ],
 };
