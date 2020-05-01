@@ -88,12 +88,12 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--secondary-color);
+  background-color: var(--notice-background-color);
   min-height: 60px;
   max-height: 60px;
-  -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.5);
-  box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: var(--notice-box-shadow);
+  -moz-box-shadow: var(--notice-box-shadow);
+  box-shadow: var(--notice-box-shadow);
 }
 
 .kaiui-notice .kaiui-notice-text-wrapper {
@@ -118,19 +118,12 @@ export default {
   padding: 7px;
   height: 60px;
   flex-shrink: 0;
-  background: var(--primary-color);
+  background: var(--notice-icon-wrapper-color);
 }
 
 .kaiui-notice .kaiui-notice-icon-wrapper .kaiui-notice-icon {
-  color: var(--light-color);
+  color: var(--notice-icon-color);
 }
-
-/* .kaiui-toast-text {
-  width: 100%;
-  text-align: center;
-  padding: 0 10px;
-  color: var(--header-text-color);
-} */
 
 .fade-enter-active,
 .fade-leave-active {

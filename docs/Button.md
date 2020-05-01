@@ -43,9 +43,3 @@ The `<kaiui-button>` component.
 
 - `set-element-selected` 
 
-## methods 
-
-- `handleFocusChange(isNowFocused)` 
-
-- `onClick()` 
-

@@ -95,15 +95,30 @@ export default {
     });
   },
   methods: {
+    /**
+     * @private
+     */
     handleFocusChange(isNowFocused) {
       if (isNowFocused) {
+        /**
+         * @private
+         */
         this.$root.$emit("update-softkeys-register", this);
       } else {
+        /**
+         * @private
+         */
         this.$root.$emit("update-softkeys-unregister");
       }
     },
+    /**
+     * @private
+     */
     onClick() {
       this.handleFocusChange(true);
+      /**
+       * @private
+       */
       this.$root.$emit("set-element-selected", this.$refs[this.refId]);
     },
   },

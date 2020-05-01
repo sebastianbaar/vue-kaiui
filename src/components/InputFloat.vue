@@ -116,6 +116,6 @@ export default {
 .kaiui-input-float .kaiui-input-float-input[nav-selected="true"] {
   padding-bottom: 6px;
   border-bottom: 2px solid var(--input-selected-color);
-  text-shadow: 0 0 0 rgba(0, 0, 0, 1);
+  text-shadow: var(--input-text-shadow-color);
 }
 </style>

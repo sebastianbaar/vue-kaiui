@@ -74,16 +74,16 @@ export default {
   justify-content: center;
   background-color: var(--toast-background-color);
   padding: 10px;
-  -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.5);
-  box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: var(--toast-box-shadow);
+  -moz-box-shadow: var(--toast-box-shadow);
+  box-shadow: var(--toast-box-shadow);
 }
 
 .kaiui-toast-text {
   width: 100%;
   text-align: center;
   padding: 0 10px;
-  color: var(--header-text-color);
+  color: var(--toast-text-color);
 }
 
 .fade-enter-active,

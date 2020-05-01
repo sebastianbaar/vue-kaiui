@@ -1,20 +1,22 @@
 <template>
-  <div class="kaiui-dialog" v-show="show">
-    <div class="kaiui-dialog-wrapper">
-      <div class="kaiui-dialog-header">
-        <span class="kaiui-dialog-header-title">{{ title }}</span>
+  <transition name="fade">
+    <div class="kaiui-dialog" v-if="show">
+      <div class="kaiui-dialog-wrapper">
+        <div class="kaiui-dialog-header">
+          <span class="kaiui-dialog-header-title">{{ title }}</span>
+        </div>
+        <div class="kaiui-dialog-container">
+          <!-- Use this slot to include other UI components. -->
+          <slot></slot>
+        </div>
       </div>
-      <div class="kaiui-dialog-container">
-        <!-- Use this slot to include other UI components. -->
-        <slot></slot>
+      <div class="kaiui-softkeys">
+        <span class="kaiui-h5 kaiui-left">{{ softkeys.left }}</span>
+        <span class="kaiui-p_link kaiui-center">{{ softkeys.center }}</span>
+        <span class="kaiui-h5 kaiui-right">{{ softkeys.right }}</span>
       </div>
     </div>
-    <div class="kaiui-softkeys">
-      <span class="kaiui-h5 kaiui-left">{{ softkeys.left }}</span>
-      <span class="kaiui-p_link kaiui-center">{{ softkeys.center }}</span>
-      <span class="kaiui-h5 kaiui-right">{{ softkeys.right }}</span>
-    </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -80,7 +82,10 @@ export default {
     show(value) {
       if (value) {
         this.lastActiveElement = Navigation.getCurrentElement();
-        this.$root.$emit("navigation-register", this.$el);
+
+        this.$nextTick(() => {
+          this.$root.$emit("navigation-register", this.$el);
+        });
       } else {
         this.$root.$emit("navigation-unregister", this.lastActiveElement);
       }
@@ -106,6 +111,9 @@ export default {
     });
   },
   methods: {
+    /**
+     * @private
+     */
     onKeyDown(event) {
       if (Navigation.getCurrentScope() !== this.$el) return;
 
@@ -146,8 +154,7 @@ export default {
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
-
-  background: rgba(0, 0, 0, 0.9);
+  background: var(--dialog-backdrop-color);
 }
 .kaiui-dialog .kaiui-dialog-wrapper {
   max-height: 100%;
@@ -163,11 +170,6 @@ export default {
   height: 30px;
   background: var(--dialog-header-background-color);
 }
-.kaiui-dialog
-  .kaiui-dialog-wrapper
-  .kaiui-dialog-header
-  .kaiui-dialog-header-title {
-}
 
 .kaiui-dialog .kaiui-dialog-wrapper .kaiui-dialog-container {
   padding: 0;
@@ -178,16 +180,15 @@ export default {
   max-height: 60vh;
 }
 
-.kaiui-softkeys {
+.kaiui-dialog .kaiui-softkeys {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #cccccc !important;
+  background: var(--secondary-dark-color);
   min-height: 30px;
   max-height: 30px;
-  background: white;
-  border-top: 2px #cbcbcb solid;
+  border-top: 2px var(--softkeys-border-color) solid;
   display: flex;
   flex-shrink: 0;
   white-space: nowrap;
@@ -195,9 +196,9 @@ export default {
   line-height: 26px;
 }
 
-.kaiui-left,
-.kaiui-right {
-  color: #242424;
+.kaiui-dialog .kaiui-softkeys .kaiui-left,
+.kaiui-dialog .kaiui-softkeys .kaiui-right {
+  color: var(--softkeys-text-color);
   overflow: hidden;
   width: 100%;
   letter-spacing: -0.5px;
@@ -205,13 +206,13 @@ export default {
   text-overflow: ellipsis;
 }
 
-.kaiui-left {
+.kaiui-dialog .kaiui-softkeys .kaiui-left {
   text-align: left;
   padding-right: 5px;
 }
 
-.kaiui-center {
-  color: #242424;
+.kaiui-dialog .kaiui-softkeys .kaiui-center {
+  color: var(--softkeys-text-color);
   text-transform: uppercase;
   font-size: 18px;
   text-align: center;
@@ -222,8 +223,17 @@ export default {
   flex-shrink: 0;
 }
 
-.kaiui-right {
+.kaiui-dialog .kaiui-softkeys .kaiui-right {
   text-align: right;
   padding-left: 5px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

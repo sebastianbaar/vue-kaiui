@@ -33,7 +33,3 @@ The `<kaiui-dialog>` component.
 
   Emit the event `softRight` when right softkey is selected 
 
-## methods 
-
-- `onKeyDown(event)` 
-

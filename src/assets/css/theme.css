@@ -28,6 +28,10 @@ body,
   --text-dark-color: #6a6a6a;
   --text-light-color: #ffffff;
 
+  --softkeys-background-color: #cccccc;
+  --softkeys-border-color: #cbcbcb;
+  --softkeys-text-color: #242424;
+
   --header-background-color: var(--primary-dark-color);
   --header-text-color: var(--text-light-color);
 
@@ -41,12 +45,12 @@ body,
   --listitem-selected-text-color: var(--text-light-color);
   --listitem-icon-right-color: var(--dark-color);
 
-  --checkbox-listitem-selected-background-color: var(--primary-color);
-  --checkbox-listitem-selected-text-color: var(--text-light-color);
-  --checkbox-listitem-icon-selected-color: var(--light-color);
-  --checkbox-listitem-icon-selected-checked-color: var(--light-color);
-  --checkbox-listitem-icon-color: var(--text-dark-color);
-  --checkbox-listitem-icon-color-checked: var(--primary-color);
+  --checkbox-selected-background-color: var(--primary-color);
+  --checkbox-selected-text-color: var(--text-light-color);
+  --checkbox-icon-selected-color: var(--light-color);
+  --checkbox-icon-selected-checked-color: var(--light-color);
+  --checkbox-icon-color: var(--text-dark-color);
+  --checkbox-icon-color-checked: var(--primary-color);
 
   --button-background-color: var(--secondary-dark-color);
   --button-selected-background-color: var(--primary-color);
@@ -66,11 +70,27 @@ body,
   --input-selected-color: var(--primary-color);
   --input-border-color: var(--secondary-dark-color);
   --input-placeholder-color: #9b9b9b;
+  --input-text-shadow-color: 0 0 0 rgba(0, 0, 0, 1);
 
   --toast-background-color: #323232;
+  --toast-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.5);
+  --toast-text-color: var(--text-light-color);
 
   --dialog-background-color: var(--light-color);
+  --dialog-backdrop-color: rgba(0, 0, 0, 0.9);
   --dialog-header-background-color: var(--secondary-dark-color);
+
+  --notice-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.5);
+  --notice-icon-color: var(--light-color);
+  --notice-icon-wrapper-color: var(--primary-color);
+  --notice-background-color: var(--secondary-color);
+
+  --radio-button-selected-background-color: var(--primary-color);
+  --radio-button-selected-text-color: var(--text-light-color);
+  --radio-button-icon-selected-color: var(--light-color);
+  --radio-button-icon-selected-checked-color: var(--light-color);
+  --radio-button-icon-color: var(--text-dark-color);
+  --radio-button-icon-color-checked: var(--primary-color);
 }
 
 /* KaiOS Typography*/

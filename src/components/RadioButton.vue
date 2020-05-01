@@ -149,7 +149,7 @@ export default {
   outline: 0;
 }
 .kaiui-radiobutton[nav-selected="true"] {
-  background-color: var(--checkbox-listitem-selected-background-color);
+  background-color: var(--radio-button-selected-background-color);
 }
 
 .kaiui-radiobutton .kaiui-radiobutton-text-wrapper {
@@ -168,18 +168,18 @@ export default {
 }
 
 .kaiui-radiobutton[nav-selected="true"] .kaiui-radiobutton-primary-text {
-  color: var(--checkbox-listitem-selected-text-color);
+  color: var(--radio-button-selected-text-color);
 }
 .kaiui-radiobutton[nav-selected="true"] .kaiui-radiobutton-secondary-text {
-  color: var(--checkbox-listitem-selected-text-color);
+  color: var(--radio-button-selected-text-color);
 }
 .kaiui-radiobutton[nav-selected="true"]
-  .kaiui-radiobutton-icon.ion-android-checkbox-outline-blank:before {
-  color: var(--checkbox-listitem-icon-selected-color);
+  .kaiui-radiobutton-icon.ion-android-radiobutton-outline-blank:before {
+  color: var(--radio-button-icon-selected-color);
 }
 .kaiui-radiobutton[nav-selected="true"]
-  .kaiui-radiobutton-icon.ion-android-checkbox-outline:before {
-  color: var(--checkbox-listitem-icon-selected-checked-color);
+  .kaiui-radiobutton-icon.ion-android-radiobutton-outline:before {
+  color: var(--radio-button-icon-selected-checked-color);
 }
 
 .kaiui-radiobutton .kaiui-radiobutton-icon {
@@ -191,10 +191,11 @@ export default {
   margin-right: 0;
   margin-left: 10px;
 }
-.kaiui-radiobutton .kaiui-radiobutton-icon.kai-icon-checkbox-unchecked:before {
-  color: var(--checkbox-listitem-icon-color);
+.kaiui-radiobutton
+  .kaiui-radiobutton-icon.kai-icon-radiobutton-unchecked:before {
+  color: var(--radio-button-icon-color);
 }
-.kaiui-radiobutton .kaiui-radiobutton-icon.kai-icon-checkbox-checked:before {
-  color: var(--checkbox-listitem-icon-color-checked);
+.kaiui-radiobutton .kaiui-radiobutton-icon.kai-icon-radiobutton-checked:before {
+  color: var(--radio-button-icon-color-checked);
 }
 </style>

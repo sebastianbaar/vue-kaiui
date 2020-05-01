@@ -46,6 +46,7 @@ export default {
   top: 0;
   left: 0;
   right: 0;
+  min-height: 30px;
   height: 30px;
   width: 100%;
   display: flex;

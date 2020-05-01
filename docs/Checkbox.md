@@ -39,9 +39,3 @@ The `<kaiui-checkbox>` component.
 
 - `set-element-selected` 
 
-## methods 
-
-- `handleFocusChange(isNowFocused)` 
-
-- `onClick()` 
-

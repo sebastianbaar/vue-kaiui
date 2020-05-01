@@ -102,15 +102,30 @@ export default {
     refId: Utils.uuid(),
   }),
   methods: {
+    /**
+     * @private
+     */
     handleFocusChange(isNowFocused) {
       if (isNowFocused) {
+        /**
+         * @private
+         */
         this.$root.$emit("update-softkeys-register", this);
       } else {
+        /**
+         * @private
+         */
         this.$root.$emit("update-softkeys-unregister");
       }
     },
+    /**
+     * @private
+     */
     onClick() {
       this.handleFocusChange(true);
+      /**
+       * @private
+       */
       this.$root.$emit("set-element-selected", this.$refs[this.refId]);
     },
   },
@@ -130,7 +145,7 @@ export default {
   outline: 0;
 }
 .kaiui-checkbox[nav-selected="true"] {
-  background-color: var(--checkbox-listitem-selected-background-color);
+  background-color: var(--checkbox-selected-background-color);
 }
 
 .kaiui-checkbox .kaiui-checkbox-text-wrapper {
@@ -149,18 +164,18 @@ export default {
 }
 
 .kaiui-checkbox[nav-selected="true"] .kaiui-checkbox-primary-text {
-  color: var(--checkbox-listitem-selected-text-color);
+  color: var(--checkbox-selected-text-color);
 }
 .kaiui-checkbox[nav-selected="true"] .kaiui-checkbox-secondary-text {
-  color: var(--checkbox-listitem-selected-text-color);
+  color: var(--checkbox-selected-text-color);
 }
 .kaiui-checkbox[nav-selected="true"]
   .kaiui-checkbox-icon.ion-android-checkbox-outline-blank:before {
-  color: var(--checkbox-listitem-icon-selected-color);
+  color: var(--checkbox-icon-selected-color);
 }
 .kaiui-checkbox[nav-selected="true"]
   .kaiui-checkbox-icon.ion-android-checkbox-outline:before {
-  color: var(--checkbox-listitem-icon-selected-checked-color);
+  color: var(--checkbox-icon-selected-checked-color);
 }
 
 .kaiui-checkbox .kaiui-checkbox-icon {
@@ -173,9 +188,9 @@ export default {
   margin-left: 10px;
 }
 .kaiui-checkbox .kaiui-checkbox-icon.kai-icon-checkbox-unchecked:before {
-  color: var(--checkbox-listitem-icon-color);
+  color: var(--checkbox-icon-color);
 }
 .kaiui-checkbox .kaiui-checkbox-icon.kai-icon-checkbox-checked:before {
-  color: var(--checkbox-listitem-icon-color-checked);
+  color: var(--checkbox-icon-color-checked);
 }
 </style>

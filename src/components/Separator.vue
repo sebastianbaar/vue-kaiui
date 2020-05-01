@@ -27,6 +27,7 @@ export default {
 
 <style scoped>
 .kaiui-separator {
+  min-height: 24px;
   height: 24px;
   width: 100%;
   display: flex;

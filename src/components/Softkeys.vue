@@ -81,11 +81,10 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #cccccc !important;
+  background: var(--softkeys-background-color);
   min-height: 30px;
   max-height: 30px;
-  background: white;
-  border-top: 2px #cbcbcb solid;
+  border-top: 2px var(--softkeys-border-color) solid;
   display: flex;
   flex-shrink: 0;
   white-space: nowrap;
@@ -93,9 +92,9 @@ export default {
   line-height: 26px;
 }
 
-.kaiui-left,
-.kaiui-right {
-  color: #242424;
+.kaiui-softkeys .kaiui-left,
+.kaiui-softkeys .kaiui-right {
+  color: var(--softkeys-text-color);
   overflow: hidden;
   width: 100%;
   letter-spacing: -0.5px;
@@ -103,13 +102,13 @@ export default {
   text-overflow: ellipsis;
 }
 
-.kaiui-left {
+.kaiui-softkeys .kaiui-left {
   text-align: left;
   padding-right: 5px;
 }
 
-.kaiui-center {
-  color: #242424;
+.kaiui-softkeys .kaiui-center {
+  color: var(--softkeys-text-color);
   text-transform: uppercase;
   font-size: 18px;
   text-align: center;
@@ -120,7 +119,7 @@ export default {
   flex-shrink: 0;
 }
 
-.kaiui-right {
+.kaiui-softkeys .kaiui-right {
   text-align: right;
   padding-left: 5px;
 }

@@ -99,6 +99,6 @@ export default {
 
 .kaiui-input .kaiui-input-input[nav-selected="true"] {
   border: 1px solid var(--input-selected-color);
-  text-shadow: 0 0 0 rgba(0, 0, 0, 1);
+  text-shadow: var(--input-text-shadow-color);
 }
 </style>
