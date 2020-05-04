@@ -78,6 +78,7 @@ export default {
       Navigation.setCurrentScope(this.$el);
       Navigation.init();
 
+      // fix for slow browser focus
       Navigation.getCurrentElement().click();
     });
     document.addEventListener("keydown", this.onKeyDown);
@@ -160,7 +161,7 @@ export default {
           break;
         default:
           break;
-      }
+      }      
     },
     /**
      * @private

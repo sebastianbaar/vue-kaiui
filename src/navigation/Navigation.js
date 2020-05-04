@@ -42,6 +42,7 @@ const initElements = () => {
 
   const firstElement = getAllElements()[0];
   if (!firstElement) return;
+
   firstElement.setAttribute("nav-selected", "true");
   firstElement.setAttribute("nav-index", "0");
   firstElement.focus();
@@ -73,7 +74,6 @@ const selectElement = (selectElement) => {
     if (selectThisElement) {
       element.focus();
       element.scrollIntoView({
-        block: "center",
         inline: "center",
         behavior: "smooth",
       });
@@ -142,7 +142,6 @@ const selectTabElement = (selectElement) => {
     if (selectThisElement) {
       element.focus();
       element.scrollIntoView({
-        block: "center",
         inline: "center",
         behavior: "smooth",
       });

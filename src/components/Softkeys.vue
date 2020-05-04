@@ -45,14 +45,16 @@ export default {
      */
     onKeyDown(event) {
       switch (event.key) {
-        case ("SoftLeft", "F13", "7"):
+        case "SoftLeft":
+          event.preventDefault();
           if (!this.softkeys.left || !this.component) return;
           /**
            * @private
            */
           this.component.$emit("softkey-left-pressed");
           break;
-        case ("SoftRight", "F15", "9"):
+        case "SoftRight":
+          event.preventDefault();
           if (!this.softkeys.right || !this.component) return;
           /**
            * @private
@@ -60,6 +62,7 @@ export default {
           this.component.$emit("softkey-right-pressed");
           break;
         case "Enter":
+          event.preventDefault();
           if (!this.softkeys.center || !this.component) return;
           /**
            * @private

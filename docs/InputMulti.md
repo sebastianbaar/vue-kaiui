@@ -35,6 +35,8 @@ The `<kaiui-input-multi>` component.
 
   Emit the event `softRight` when right softkey is selected 
 
+- `softCenter` 
+
 - `input` 
 
   Emit the event `input` with `value` when the input value changes 

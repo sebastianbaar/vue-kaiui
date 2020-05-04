@@ -18,6 +18,9 @@ import Slider from "./components/Slider.vue";
 import Toast from "./components/Toast.vue";
 import Dialog from "./components/Dialog.vue";
 import Notice from "./components/Notice.vue";
+// Mixins
+import ToastMixin from "./mixins/Toast.mixin.vue";
+import NoticeMixin from "./mixins/Notice.mixin.vue";
 
 // CSS & Ionicons icons
 require("./assets/css/theme.css");
@@ -27,6 +30,7 @@ function install(Vue) {
   if (install.installed) return;
   install.installed = true;
 
+  // components
   Vue.component(Content.name, Content);
   Vue.component(Softkeys.name, Softkeys);
   Vue.component(Header.name, Header);
@@ -46,24 +50,9 @@ function install(Vue) {
   Vue.component(Toast.name, Toast);
   Vue.component(Dialog.name, Dialog);
   Vue.component(Notice.name, Notice);
-
-  Vue.mixin({
-    methods: {
-      showToast(title, time) {
-        this.$root.$emit("showToast", { title: title, time: time });
-      },
-      showNotice(icon, title, subtitle) {
-        this.$root.$emit("showNotice", {
-          icon: icon,
-          title: title,
-          subtitle: subtitle,
-        });
-      },
-      hideNotice() {
-        this.$root.$emit("hideNotice");
-      },
-    },
-  });
+  // mixins
+  Vue.mixin(ToastMixin);
+  Vue.mixin(NoticeMixin);
 }
 
 const plugin = {

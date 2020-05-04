@@ -74,8 +74,12 @@ export default {
       this.$emit("softRight");
     });
     this.$on("softkey-center-pressed", () => {
-      // this.$emit("softCenter");
-      this.value = this.value + "\n";
+      /**
+       * Add line break
+       * Emit the event `softCenter` when center softkey is selected
+       */
+      this.$emit("softCenter");
+      this.value = this.value + "\r";
     });
   },
   methods: {

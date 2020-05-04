@@ -115,10 +115,13 @@ export default {
      * @private
      */
     onKeyDown(event) {
-      if (Navigation.getCurrentScope() !== this.$el) return;
+      if (Navigation.getCurrentScope() !== this.$el) {
+        return;
+      }
 
       switch (event.key) {
-        case ("SoftLeft", "F13", "7"):
+        case "SoftLeft":
+          event.preventDefault();
           if (!this.softkeys.left) return;
           /**
            * Emit the event `softLeft` when left softkey is selected
@@ -126,7 +129,8 @@ export default {
           this.$emit("softLeft");
           this.show = false;
           break;
-        case ("SoftRight", "F15", "9"):
+        case "SoftRight":
+          event.preventDefault();
           if (!this.softkeys.right) return;
           /**
            * Emit the event `softRight` when right softkey is selected
@@ -158,6 +162,7 @@ export default {
 }
 .kaiui-dialog .kaiui-dialog-wrapper {
   max-height: 100%;
+  width: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
