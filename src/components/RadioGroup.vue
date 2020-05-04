@@ -32,15 +32,9 @@ export default {
     event: "selectedValueChange",
   },
   mounted() {
-    if (this.selectedValue) {
-      this.$slots.default.forEach((vNode) => {
-        if (vNode.componentInstance.value == this.selectedValue) {
-          vNode.componentInstance.isChecked = true;
-        } else {
-          vNode.componentInstance.isChecked = false;
-        }
-      });
-    }
+    this.$nextTick(() => {
+      this.initChildren();
+    });
 
     this.$on("radiobutton-selected", (component) => {
       this.$slots.default.forEach((vNode) => {
@@ -55,6 +49,22 @@ export default {
         }
       });
     });
+  },
+  methods: {
+    /**
+     * @private
+     */
+    initChildren() {
+      if (this.selectedValue) {
+        this.$slots.default.forEach((vNode) => {
+          if (vNode.componentInstance.value == this.selectedValue) {
+            vNode.componentInstance.isChecked = true;
+          } else {
+            vNode.componentInstance.isChecked = false;
+          }
+        });
+      }
+    },
   },
 };
 </script>

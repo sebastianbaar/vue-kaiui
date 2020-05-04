@@ -52,6 +52,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
   background-color: var(--header-background-color);
 }
 
@@ -59,6 +60,8 @@ export default {
   width: 100%;
   text-align: center;
   padding: 0 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
   color: var(--header-text-color);
 }
 </style>

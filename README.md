@@ -141,16 +141,16 @@ export default {
 ```
 
 ## Styles
-You can simply override CSS variables in your global CSS or in scoped styles. All theme CSS variables are found [here](https://github.com/sebastianbaar/vue-kaiui/tree/master/src/assets/css/theme.css).
+You can simply override CSS variables in your styles using the `:root` scope. All theme CSS variables are found [here](https://github.com/sebastianbaar/vue-kaiui/tree/master/src/assets/css/theme.css).
 
 ```css
 <style>
 
 :root{
-  --primary-color: red !important; 
-  --primary-dark-color: darkred !important;
+  --primary-color: red; 
+  --primary-dark-color: darkred;
   ...
-  --tabbar-tabs-selected-color: blue !important;
+  --tabbar-tabs-selected-color: blue;
   ...
 }
 

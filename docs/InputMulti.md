@@ -37,6 +37,8 @@ The `<kaiui-input-multi>` component.
 
 - `softCenter` 
 
+  Add line break & Emit the event `softCenter` when center softkey is selected 
+
 - `input` 
 
   Emit the event `input` with `value` when the input value changes 

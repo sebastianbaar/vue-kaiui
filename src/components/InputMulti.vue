@@ -75,8 +75,7 @@ export default {
     });
     this.$on("softkey-center-pressed", () => {
       /**
-       * Add line break
-       * Emit the event `softCenter` when center softkey is selected
+       * Add line break & Emit the event `softCenter` when center softkey is selected
        */
       this.$emit("softCenter");
       this.value = this.value + "\r";

@@ -161,7 +161,7 @@ export default {
           break;
         default:
           break;
-      }      
+      }
     },
     /**
      * @private

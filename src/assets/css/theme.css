@@ -16,7 +16,7 @@ body,
   outline: 0;
 }
 
-:root {
+html {
   --primary-color: #6f02b5;
   --primary-light-color: #af8ed8;
   --primary-dark-color: #320276;

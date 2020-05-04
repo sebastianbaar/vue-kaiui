@@ -102,9 +102,14 @@ export default {
   overflow: hidden;
 }
 .kaiui-tabs-wrapper .kaiui-tabs-header .kaiui-tabs-header-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-bottom: none;
   margin: 0 5px;
   outline: 0;
+  max-width: 80%;
+  white-space: nowrap;
 }
 
 .kaiui-tabs-wrapper
@@ -120,5 +125,6 @@ export default {
   .kaiui-tabs-header-tab-text {
   padding: 0 5px;
   text-overflow: ellipsis;
+  overflow: hidden;
 }
 </style>
