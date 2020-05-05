@@ -1,14 +1,20 @@
 <template>
   <div class="kaiui-softkeys">
-    <span class="kaiui-h5 kaiui-left">{{ softkeys.left }}</span>
-    <span class="kaiui-p_link kaiui-center">{{ softkeys.center }}</span>
-    <span class="kaiui-h5 kaiui-right">{{ softkeys.right }}</span>
+    <span class="kaiui-h5 kaiui-left" v-on:click="onClickLeft">{{
+      softkeys.left
+    }}</span>
+    <span class="kaiui-p_link kaiui-center" v-on:click="onClickCenter">{{
+      softkeys.center
+    }}</span>
+    <span class="kaiui-h5 kaiui-right" v-on:click="onClickRight">{{
+      softkeys.right
+    }}</span>
   </div>
 </template>
 
 <script>
 /**
- * **This component is automatically integrated in the `<kaiui-content>` component.**
+ * **PRIVATE: This component is automatically integrated in the `<kaiui-content>` component.**
  *
  * @author Sebastian Baar
  * @license MIT
@@ -40,6 +46,36 @@ export default {
     document.addEventListener("keydown", this.onKeyDown);
   },
   methods: {
+    /**
+     * @private
+     */
+    onClickLeft() {
+      if (!this.softkeys.left || !this.component) return;
+      /**
+       * @private
+       */
+      this.component.$emit("softkey-left-pressed");
+    },
+    /**
+     * @private
+     */
+    onClickCenter() {
+      if (!this.softkeys.center || !this.component) return;
+      /**
+       * @private
+       */
+      this.component.$emit("softkey-center-pressed");
+    },
+    /**
+     * @private
+     */
+    onClickRight() {
+      if (!this.softkeys.right || !this.component) return;
+      /**
+       * @private
+       */
+      this.component.$emit("softkey-right-pressed");
+    },
     /**
      * @private
      */
@@ -97,6 +133,7 @@ export default {
 
 .kaiui-softkeys .kaiui-left,
 .kaiui-softkeys .kaiui-right {
+  cursor: pointer;
   color: var(--softkeys-text-color);
   overflow: hidden;
   width: 100%;
@@ -111,6 +148,7 @@ export default {
 }
 
 .kaiui-softkeys .kaiui-center {
+  cursor: pointer;
   color: var(--softkeys-text-color);
   text-transform: uppercase;
   font-size: 18px;

@@ -5,8 +5,7 @@
     tabindex="0"
     v-on:focus="handleFocusChange(true)"
     v-on:blur="handleFocusChange(false)"
-    v-bind:ref="refId"
-    v-on:click="onClick()"
+    v-on:click="onClick"
   >
     <div class="kaiui-radiobutton-text-wrapper">
       <span class="kaiui-p_pri kaiui-radiobutton-primary-text">{{
@@ -34,7 +33,6 @@
  * @author Sebastian Baar
  * @license MIT
  */
-import Utils from "../utils/Utils";
 
 export default {
   name: "kaiui-radiobutton",
@@ -100,10 +98,6 @@ export default {
      * @private
      */
     isChecked: false,
-    /**
-     * @private
-     */
-    refId: Utils.uuid(),
   }),
   methods: {
     /**
@@ -130,7 +124,7 @@ export default {
       /**
        * @private
        */
-      this.$root.$emit("set-element-selected", this.$refs[this.refId]);
+      this.$root.$emit("set-element-selected", this.$el);
     },
   },
 };
@@ -138,6 +132,7 @@ export default {
 
 <style>
 .kaiui-radiobutton {
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

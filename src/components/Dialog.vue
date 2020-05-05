@@ -11,9 +11,13 @@
         </div>
       </div>
       <div class="kaiui-softkeys">
-        <span class="kaiui-h5 kaiui-left">{{ softkeys.left }}</span>
-        <span class="kaiui-p_link kaiui-center">{{ softkeys.center }}</span>
-        <span class="kaiui-h5 kaiui-right">{{ softkeys.right }}</span>
+        <span class="kaiui-h5 kaiui-left" v-on:click="onClickLeft">{{
+          softkeys.left
+        }}</span>
+        <span class="kaiui-p_link kaiui-center-spacer"></span>
+        <span class="kaiui-h5 kaiui-right" v-on:click="onClickRight">{{
+          softkeys.right
+        }}</span>
       </div>
     </div>
   </transition>
@@ -26,7 +30,7 @@
  * @author Sebastian Baar
  * @license MIT
  */
-import Utils from "../utils/Utils";
+
 import Navigation from "../navigation/Navigation";
 
 export default {
@@ -42,8 +46,8 @@ export default {
     },
     /**
      * The Softkeys Object
-     * @type {{ left: String, center: String, right: String }}
-     * @default { center: "Select" }
+     * @type {{ left: String, right: String }}
+     * @default { left: "Cancel", right: "OK" }
      */
     softkeys: {
       default: () => ({ left: "Cancel", right: "OK" }),
@@ -111,6 +115,28 @@ export default {
     });
   },
   methods: {
+    /**
+     * @private
+     */
+    onClickLeft() {
+      if (!this.softkeys.left) return;
+      /**
+       * Emit the event `softLeft` when left softkey is selected
+       */
+      this.$emit("softLeft");
+      this.show = false;
+    },
+    /**
+     * @private
+     */
+    onClickRight() {
+      if (!this.softkeys.right) return;
+      /**
+       * Emit the event `softRight` when right softkey is selected
+       */
+      this.$emit("softRight");
+      this.show = false;
+    },
     /**
      * @private
      */
@@ -212,23 +238,19 @@ export default {
 }
 
 .kaiui-dialog .kaiui-softkeys .kaiui-left {
+  cursor: pointer;
   text-align: left;
   padding-right: 5px;
 }
 
-.kaiui-dialog .kaiui-softkeys .kaiui-center {
-  color: var(--softkeys-text-color);
-  text-transform: uppercase;
-  font-size: 18px;
-  text-align: center;
+.kaiui-dialog .kaiui-softkeys .kaiui-center-spacer {
   max-width: 120px;
-  overflow: hidden;
-  text-overflow: ellipsis;
   width: 100%;
   flex-shrink: 0;
 }
 
 .kaiui-dialog .kaiui-softkeys .kaiui-right {
+  cursor: pointer;
   text-align: right;
   padding-left: 5px;
 }

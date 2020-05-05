@@ -1,10 +1,10 @@
 # kaiui-notice 
 
-**This component is automatically integrated as a Mixin. Just use**
+**PRIVATE: This component is automatically integrated as a global Mixin. Just use**
 
 `this.showNotice("ion-battery-empty", "Battery Full", "Battery is fully charged")`
 
-**in your components.** 
+**in any of your components.** 
 
 - **author** - Sebastian Baar 
 - **license** - MIT 

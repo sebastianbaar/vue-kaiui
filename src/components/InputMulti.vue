@@ -10,8 +10,7 @@
       v-model="value"
       v-on:input="onInput"
       v-bind:nav-selectable="true"
-      v-bind:ref="refId"
-      v-on:click="onClick()"
+      v-on:click="onClick"
     ></textarea>
   </div>
 </template>
@@ -23,7 +22,6 @@
  * @author Sebastian Baar
  * @license MIT
  */
-import Utils from "../utils/Utils";
 
 export default {
   name: "kaiui-input-multi",
@@ -55,10 +53,6 @@ export default {
   },
   data: () => ({
     value: "",
-    /**
-     * @private
-     */
-    refId: Utils.uuid(),
   }),
   mounted() {
     this.$on("softkey-left-pressed", () => {
@@ -115,7 +109,7 @@ export default {
       /**
        * @private
        */
-      this.$root.$emit("set-element-selected", this.$refs[this.refId]);
+      this.$root.$emit("set-element-selected", this.$el);
     },
   },
 };
@@ -123,6 +117,7 @@ export default {
 
 <style scoped>
 .kaiui-input-multi {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   margin: 10px 10px;

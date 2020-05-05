@@ -4,8 +4,8 @@
 
 
 - [Installation](#installation)
-- [Usage / API](#usage--api)
-  - [Example](#example)
+- [Usage](#usage)
+  - [Components API](#components-api)
   - [Styles](#styles)
 - [Status](#status)
   - [Components](#components)
@@ -34,111 +34,12 @@ new Vue({
 }).$mount('#app')
 ```
 
-# Usage / API
-See the [Components API docs](https://github.com/sebastianbaar/vue-kaiui/tree/master/docs/) and the [sample App](https://github.com/sebastianbaar/vue-kaiui-sample) for usage examples.
+# Usage
+Most importantly, put all the components in the `<kaiui-content>` root so that KaiUI can manage all the Softkeys and Header design elements for you.
 
-## Example
-Most importantly put all the components in the `<kaiui-content>` root so that the library can manage all the Softkeys and Header design elements for you. The structure may look like this:
+## Components API
 
-```html
-<template>
-  <kaiui-content> <!-- IMPORTANT root element -->
-    <kaiui-header title="ToDo List" />
-    <kaiui-tabs>
-      <kaiui-tab-item name="Item One" selected>
-        <kaiui-text
-          text="This is a standard Text element with a lot of Text in it. Hope you like it. Enjoy!"
-        />
-        <kaiui-input
-          v-on:input="onInputChanged"
-          label="Add a Task"
-          placeholder="New Item"
-        />
-        <kaiui-button
-          v-bind:softkeys="softkeysPhone"
-          v-on:softRight="phoneButtonSoftRightClicked"
-          v-on:softCenter="phoneButtonSoftCenterClicked"
-          icon="kai-icon-phone"
-          iconRight
-          title="Button Title"
-        />
-        <kaiui-button title="Button Title" />
-      </kaiui-tab-item>
-
-      <kaiui-tab-item name="Item Two">
-        <kaiui-list-item primaryText="List Item Title" />
-        <kaiui-list-item primaryText="List Item Title" iconLeft="kai-icon-download" />
-        <kaiui-list-item
-          primaryText="List Item Title"
-          secondaryText="Subtitle for List Item Title"
-          iconRight
-        />
-        <kaiui-list-item
-          primaryText="List Item Title"
-          secondaryText="Subtitle for List Item Title"
-          iconLeft="kai-icon-contacts"
-          iconRight="none"
-        />
-        <kaiui-list-item primaryText="List Item Title" iconLeft="kai-icon-favorite-on" />
-        <kaiui-list-item
-          primaryText="List Item Title"
-          secondaryText="Subtitle for List Item Title"
-          tertiaryText="Very very long Tertiary Text for List Item Title"
-          iconLeft="kai-icon-calendar"
-          iconRight="kai-icon-favorite-on"
-        />
-      </kaiui-tab-item>
-
-      <kaiui-tab-item name="Item Three">
-        <kaiui-checkbox
-          primaryText="Checkbox Item Title"
-          secondaryText="Subtitle for Checkbox List Item Title"
-          v-bind:isChecked="true"
-        />
-        <kaiui-checkbox primaryText="Checkbox Item Title" />
-      </kaiui-tab-item>
-
-      <kaiui-tab-item name="Item Four">
-        <kaiui-text text="Slider Fun..." />
-        <kaiui-separator title="Separator Title" />
-        <kaiui-slider
-          title="Alarm"
-          v-bind:startValue="sliderStartValue"
-          v-on:change="sliderValueChanged"
-          v-bind:minValue="0"
-          v-bind:maxValue="20"
-          v-bind:step="0.5"
-        />
-      </kaiui-tab-item>
-    </kaiui-tabs>
-  </kaiui-content>
-</template>
-
-<script>
-export default {
-  name: "app",
-  data: () => ({
-    softkeysPhone: { left: "What's App", center: "Call", right: "SMS" },
-    sliderStartValue: 10,
-    sliderTextValue: "Slider value is 10"
-  }),
-  methods: {
-    phoneButtonSoftRightClicked() {
-      this.showToast("SMS send!");
-    },
-    phoneButtonSoftCenterClicked() {
-      this.showToast("Calling Mom...!");
-    },
-    sliderValueChanged(value) {
-      this.sliderTextValue = "Slider value is " + value;
-    },
-    onInputChanged(newValue) {
-      console.log(newValue);
-    }
-  }
-};
-</script>
-```
+See the [Components API docs](https://github.com/sebastianbaar/vue-kaiui/tree/master/docs/) and the [Sample App](https://github.com/sebastianbaar/sample-vue-kaiui-app) for usage examples.
 
 ## Styles
 You can simply override CSS variables in your styles using the `:root` scope. All theme CSS variables are found [here](https://github.com/sebastianbaar/vue-kaiui/tree/master/src/assets/css/theme.css).

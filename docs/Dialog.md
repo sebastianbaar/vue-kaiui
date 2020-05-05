@@ -15,7 +15,7 @@ The `<kaiui-dialog>` component.
 
   Use `v-model` to define a reactive value to hide/show the dialog 
 
-- `softkeys` ***{ left: String, center: String, right: String }*** (*optional*) `default: { center: "Select" }` 
+- `softkeys` ***{ left: String, right: String }*** (*optional*) `default: { left: "Cancel", right: "OK" }` 
 
   The Softkeys Object 
 

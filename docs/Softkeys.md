@@ -1,6 +1,6 @@
 # kaiui-softkeys 
 
-**This component is automatically integrated in the `<kaiui-content>` component.** 
+**PRIVATE: This component is automatically integrated in the `<kaiui-content>` component.** 
 
 - **author** - Sebastian Baar 
 - **license** - MIT 
@@ -9,7 +9,7 @@
 
 - `softkey-left-pressed` 
 
-- `softkey-right-pressed` 
-
 - `softkey-center-pressed` 
+
+- `softkey-right-pressed` 
 

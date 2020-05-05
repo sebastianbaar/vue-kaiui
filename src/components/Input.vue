@@ -8,8 +8,7 @@
       v-on:input="onInput"
       v-model="value"
       v-bind:nav-selectable="true"
-      v-bind:ref="refId"
-      v-on:click="onClick()"
+      v-on:click="onClick"
     />
   </div>
 </template>
@@ -21,7 +20,6 @@
  * @author Sebastian Baar
  * @license MIT
  */
-import Utils from "../utils/Utils";
 
 export default {
   name: "kaiui-input",
@@ -43,10 +41,6 @@ export default {
   },
   data: () => ({
     value: "",
-    /**
-     * @private
-     */
-    refId: Utils.uuid(),
   }),
   methods: {
     /**
@@ -65,7 +59,7 @@ export default {
       /**
        * @private
        */
-      this.$root.$emit("set-element-selected", this.$refs[this.refId]);
+      this.$root.$emit("set-element-selected", this.$el);
     },
   },
 };
@@ -73,6 +67,7 @@ export default {
 
 <style scoped>
 .kaiui-input {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   margin: 10px 10px;

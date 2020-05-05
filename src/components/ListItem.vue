@@ -5,8 +5,7 @@
     tabindex="0"
     v-on:focus="handleFocusChange(true)"
     v-on:blur="handleFocusChange(false)"
-    v-bind:ref="refId"
-    v-on:click="onClick()"
+    v-on:click="onClick"
   >
     <span
       v-if="iconLeft && iconLeft != 'none'"
@@ -39,7 +38,6 @@
  * @author Sebastian Baar
  * @license MIT
  */
-import Utils from "../utils/Utils";
 
 export default {
   name: "kaiui-list-item",
@@ -112,12 +110,7 @@ export default {
       this.$emit("softCenter");
     });
   },
-  data: () => ({
-    /**
-     * @private
-     */
-    refId: Utils.uuid(),
-  }),
+
   methods: {
     /**
      * @private
@@ -143,7 +136,7 @@ export default {
       /**
        * @private
        */
-      this.$root.$emit("set-element-selected", this.$refs[this.refId]);
+      this.$root.$emit("set-element-selected", this.$el);
     },
   },
 };
@@ -151,6 +144,7 @@ export default {
 
 <style>
 .kaiui-listitem {
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

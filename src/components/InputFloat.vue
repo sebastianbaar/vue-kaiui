@@ -6,8 +6,7 @@
       v-on:input="onInput"
       v-model="value"
       v-bind:nav-selectable="true"
-      v-bind:ref="refId"
-      v-on:click="onClick()"
+      v-on:click="onClick"
     />
     <label class="kaiui-input-float-label">{{ label }}</label>
   </div>
@@ -20,7 +19,6 @@
  * @author Sebastian Baar
  * @license MIT
  */
-import Utils from "../utils/Utils";
 
 export default {
   name: "kaiui-input-float",
@@ -35,10 +33,6 @@ export default {
   },
   data: () => ({
     value: "",
-    /**
-     * @private
-     */
-    refId: Utils.uuid(),
   }),
   methods: {
     /**
@@ -57,7 +51,7 @@ export default {
       /**
        * @private
        */
-      this.$root.$emit("set-element-selected", this.$refs[this.refId]);
+      this.$root.$emit("set-element-selected", this.$el);
     },
   },
 };
@@ -65,6 +59,7 @@ export default {
 
 <style scoped>
 .kaiui-input-float {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   margin: 10px 10px;

@@ -12,7 +12,6 @@
  * @author Sebastian Baar
  * @license MIT
  */
-import Utils from "../utils/Utils";
 
 export default {
   name: "kaiui-radiogroup",
@@ -55,15 +54,11 @@ export default {
      * @private
      */
     initChildren() {
-      if (this.selectedValue) {
-        this.$slots.default.forEach((vNode) => {
-          if (vNode.componentInstance.value == this.selectedValue) {
-            vNode.componentInstance.isChecked = true;
-          } else {
-            vNode.componentInstance.isChecked = false;
-          }
-        });
-      }
+      this.$slots.default.forEach((vNode) => {
+        vNode.componentInstance.isChecked =
+          this.selectedValue &&
+          vNode.componentInstance.value == this.selectedValue;
+      });
     },
   },
 };

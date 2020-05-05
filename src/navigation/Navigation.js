@@ -221,7 +221,7 @@ const shouldBeHandledByElement = (direction) => {
     case "INPUT":
       switch (direction) {
         case "LEFT":
-          if (currentElement.getAttribute("type") == "SLIDER") {
+          if (currentElement.getAttribute("type") == "kaiui-slider") {
             return true;
           }
 
@@ -230,7 +230,7 @@ const shouldBeHandledByElement = (direction) => {
           }
           return true;
         case "RIGHT":
-          if (currentElement.getAttribute("type") == "SLIDER") {
+          if (currentElement.getAttribute("type") == "kaiui-slider") {
             return true;
           }
 
@@ -239,11 +239,11 @@ const shouldBeHandledByElement = (direction) => {
           }
           return true;
         case "UP":
-          if (currentElement.getAttribute("type") == "SLIDER") {
+          if (currentElement.getAttribute("type") == "kaiui-slider") {
             return false;
           }
         case "DOWN":
-          if (currentElement.getAttribute("type") == "SLIDER") {
+          if (currentElement.getAttribute("type") == "kaiui-slider") {
             return false;
           }
         default:

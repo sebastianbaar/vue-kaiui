@@ -2,12 +2,11 @@
   <div
     v-bind:nav-selectable="true"
     tabindex="0"
-    type="SLIDER"
+    type="kaiui-slider"
     class="kaiui-slider"
     v-on:focus="handleFocusChange(true)"
     v-on:blur="handleFocusChange(false)"
-    v-bind:ref="refId"
-    v-on:click="onClick()"
+    v-on:click="onClick"
   >
     <div class="kaiui-slider-text-container">
       <span class="kaiui-p_pri kaiui-slider-title">{{ title }}</span>
@@ -37,7 +36,6 @@
  * @author Sebastian Baar
  * @license MIT
  */
-import Utils from "../utils/Utils";
 
 export default {
   name: "kaiui-slider",
@@ -124,10 +122,6 @@ export default {
      * @private
      */
     value: 0,
-    /**
-     * @private
-     */
-    refId: Utils.uuid(),
   }),
   methods: {
     /**
@@ -164,7 +158,7 @@ export default {
       /**
        * @private
        */
-      this.$root.$emit("set-element-selected", this.$refs[this.refId]);
+      this.$root.$emit("set-element-selected", this.$el);
     },
   },
 };
@@ -172,6 +166,7 @@ export default {
 
 <style scoped>
 .kaiui-slider {
+  cursor: pointer;
   min-height: 60px;
   max-height: 60px;
   padding: 10px;

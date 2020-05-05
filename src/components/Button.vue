@@ -5,8 +5,7 @@
     tabindex="0"
     v-on:focus="handleFocusChange(true)"
     v-on:blur="handleFocusChange(false)"
-    v-bind:ref="refId"
-    v-on:click="onClick()"
+    v-on:click="onClick"
     v-bind:class="{ 'kaiui-button-reversed-icon': iconRight }"
   >
     <span v-if="icon" class="kaiui-button-icon" v-bind:class="icon"></span>
@@ -31,7 +30,6 @@
  * @author Sebastian Baar
  * @license MIT
  */
-import Utils from "../utils/Utils";
 
 export default {
   name: "kaiui-button",
@@ -68,12 +66,7 @@ export default {
       required: false,
     },
   },
-  data: () => ({
-    /**
-     * @private
-     */
-    refId: Utils.uuid(),
-  }),
+
   mounted() {
     this.$on("softkey-left-pressed", () => {
       /**
@@ -119,7 +112,7 @@ export default {
       /**
        * @private
        */
-      this.$root.$emit("set-element-selected", this.$refs[this.refId]);
+      this.$root.$emit("set-element-selected", this.$el);
     },
   },
 };
@@ -127,6 +120,7 @@ export default {
 
 <style scoped>
 .kaiui-button {
+  cursor: pointer;
   min-height: 36px;
   margin: 10px;
   display: flex;

@@ -102,6 +102,7 @@ export default {
   overflow: hidden;
 }
 .kaiui-tabs-wrapper .kaiui-tabs-header .kaiui-tabs-header-tab {
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;

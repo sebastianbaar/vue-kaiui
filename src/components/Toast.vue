@@ -8,11 +8,11 @@
 
 <script>
 /**
- * **This component is automatically integrated as a Mixin. Just use**
+ * **PRIVATE: This component is automatically integrated as a global Mixin. Just use**
  *
  * `this.showToast("I'm a Toast")`
  *
- * **in your components.**
+ * **in any of your components.**
  *
  * @author Sebastian Baar
  * @license MIT
