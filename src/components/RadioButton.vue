@@ -70,6 +70,11 @@ export default {
     },
   },
   mounted() {
+    /**
+     * @private
+     */
+    this.$parent.$emit("radiobutton-mounted", this);
+
     this.$on("softkey-left-pressed", () => {
       /**
        * Emit the event `softLeft` when left softkey is selected

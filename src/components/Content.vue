@@ -77,10 +77,8 @@ export default {
     this.$nextTick(() => {
       Navigation.setCurrentScope(this.$el);
       Navigation.init();
-
-      // fix for slow browser focus
-      Navigation.getCurrentElement().click();
     });
+
     document.addEventListener("keydown", this.onKeyDown);
 
     // navigation registration handler

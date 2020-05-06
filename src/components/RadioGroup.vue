@@ -26,40 +26,39 @@ export default {
       required: true,
     },
   },
+  data: () => ({
+    /**
+     * @private
+     */
+    radioButtons: [],
+  }),
   model: {
     prop: "selectedValue",
     event: "selectedValueChange",
   },
-  mounted() {
-    this.$nextTick(() => {
-      this.initChildren();
-    });
-
-    this.$on("radiobutton-selected", (component) => {
-      this.$slots.default.forEach((vNode) => {
-        if (vNode.componentInstance == component) {
-          vNode.componentInstance.isChecked = true;
-          /**
-           * @private
-           */
-          this.$emit("selectedValueChange", vNode.componentInstance.value);
-        } else {
-          vNode.componentInstance.isChecked = false;
-        }
-      });
-    });
-  },
-  methods: {
+  created() {
     /**
      * @private
      */
-    initChildren() {
-      this.$slots.default.forEach((vNode) => {
-        vNode.componentInstance.isChecked =
-          this.selectedValue &&
-          vNode.componentInstance.value == this.selectedValue;
+    this.$on("radiobutton-mounted", (component) => {
+      this.radioButtons.push(component);
+
+      component.isChecked =
+        this.selectedValue && component.value == this.selectedValue;
+    });
+
+    this.$on("radiobutton-selected", (component) => {
+      const selectedValue = component.value;
+
+      /**
+       * @private
+       */
+      this.$emit("selectedValueChange", selectedValue);
+
+      this.radioButtons.forEach((component) => {
+        component.isChecked = selectedValue && component.value == selectedValue;
       });
-    },
+    });
   },
 };
 </script>

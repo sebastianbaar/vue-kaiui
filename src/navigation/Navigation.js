@@ -45,8 +45,10 @@ const initElements = () => {
 
   firstElement.setAttribute("nav-selected", "true");
   firstElement.setAttribute("nav-index", "0");
-  firstElement.focus();
-  firstElement.click();
+  window.setTimeout(function () {
+    // https://stackoverflow.com/questions/1096436/document-getelementbyidid-focus-is-not-working-for-firefox-or-chrome
+    firstElement.focus();
+  }, 0);
 };
 
 const getAllElements = () => scope.querySelectorAll("[nav-selectable]");

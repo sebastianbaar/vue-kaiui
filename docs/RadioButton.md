@@ -25,6 +25,8 @@ The `<kaiui-radiobutton>` component.
 
 ## events 
 
+- `radiobutton-mounted` 
+
 - `softLeft` 
 
   Emit the event `softLeft` when left softkey is selected 
