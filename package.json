@@ -1,6 +1,6 @@
 {
   "name": "vue-kaiui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Vue component library for KaiOS apps",
   "main": "dist/vue-kaiui.js",
   "module": "dist/vue-kaiui.esm.js",
