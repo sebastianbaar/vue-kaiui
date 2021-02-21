@@ -1,16 +1,14 @@
 <template>
   <div v-bind:nav-selectable="true" class="progress-container" tabindex="0">
     <label class="kaiui-p_pr progress-container-label"> {{ text }} </label>
-    <progress
-      class="focusable progress-container-progress"
-    ></progress>
+    <progress class="focusable progress-container-progress"></progress>
   </div>
 </template>
 
 <script>
 export default {
   name: "kaiui-progress",
-   props: {
+  props: {
     /**
      * The Progress Text
      */
@@ -30,9 +28,9 @@ export default {
 }
 
 .progress-container-label {
-    overflow: hidden;
-    margin: 0;
-    display: block;
+  overflow: hidden;
+  margin: 0;
+  display: block;
 }
 
 .progress-container-progress {
@@ -50,13 +48,13 @@ export default {
 
 @keyframes indeterminateAnimation {
   0% {
-    transform:  translateX(0) scaleX(0);
+    transform: translateX(0) scaleX(0);
   }
   40% {
-    transform:  translateX(0) scaleX(0.4);
+    transform: translateX(0) scaleX(0.4);
   }
   100% {
-    transform:  translateX(100%) scaleX(0.5);
+    transform: translateX(100%) scaleX(0.5);
   }
 }
 

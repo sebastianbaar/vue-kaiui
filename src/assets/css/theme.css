@@ -92,9 +92,9 @@ html {
   --radio-button-icon-color: var(--text-dark-color);
   --radio-button-icon-color-checked: var(--primary-color);
 
-  --progress-color: #AAAAAA;
-  --progress-color-selected: #873EFF;
-  --progress-focused-color: #AAAAAA;
+  --progress-color: #aaaaaa;
+  --progress-color-selected: #873eff;
+  --progress-focused-color: #aaaaaa;
   --progress-focused-selected: var(--primary-color);
 }
 
