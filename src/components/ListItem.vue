@@ -7,11 +7,9 @@
     v-on:blur="handleFocusChange(false)"
     v-on:click="onClick"
   >
-    <span
-      v-if="iconLeft && iconLeft != 'none'"
-      class="kaiui-listitem-icon"
-      v-bind:class="iconLeft"
-    ></span>
+    <span class="kaiui-listitem-icon" v-bind:class="iconLeft" v-if="$slots.iconLeft || hasLeftIcon">
+        <slot name="iconLeft" v-if="!hasLeftIcon"></slot>
+    </span>
     <div class="kaiui-listitem-text-wrapper">
       <span class="kaiui-p_pri kaiui-listitem-primary-text">{{
         primaryText
@@ -23,11 +21,9 @@
         tertiaryText
       }}</span>
     </div>
-    <span
-      v-if="iconRight && iconRight != 'none'"
-      class="kaiui-listitem-icon right"
-      v-bind:class="iconRight"
-    ></span>
+    <span class="kaiui-listitem-icon right" v-bind:class="iconRight" v-if="$slots.iconRight || hasRightIcon">
+        <slot name="iconRight" v-if="!hasRightIcon"></slot>
+    </span>
   </div>
 </template>
 
@@ -85,7 +81,7 @@ export default {
      * The Right Icon CSS class
      */
     iconRight: {
-      default: "kai-icon-arrow",
+      default: "none",
       type: String,
       required: false,
     },
@@ -110,7 +106,14 @@ export default {
       this.$emit("softCenter");
     });
   },
-
+  computed: {
+    hasLeftIcon() {
+      return this.iconLeft && this.iconLeft != 'none';
+    },
+    hasRightIcon() {
+      return this.iconRight && this.iconRight != 'none';
+    },
+  },
   methods: {
     /**
      * @private
@@ -163,7 +166,6 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
   overflow: hidden;
   flex: 1;
 }
@@ -183,10 +185,10 @@ export default {
 .kaiui-listitem[nav-selected="true"] .kaiui-listitem-tertiary-text {
   color: var(--listitem-selected-text-color);
 }
-.kaiui-listitem[nav-selected="true"] .kaiui-listitem-icon:before {
+.kaiui-listitem[nav-selected="true"] .kaiui-listitem-icon {
   color: var(--listitem-selected-text-color);
 }
-.kaiui-listitem[nav-selected="true"] .kaiui-listitem-icon.right:before {
+.kaiui-listitem[nav-selected="true"] .kaiui-listitem-icon.right {
   color: var(--listitem-selected-text-color);
 }
 
@@ -204,7 +206,7 @@ export default {
   flex-shrink: 0;
   margin-left: 10px;
 }
-.kaiui-listitem .kaiui-listitem-icon.right:before {
+.kaiui-listitem .kaiui-listitem-icon.right {
   color: var(--listitem-icon-right-color);
 }
 </style>

@@ -23,13 +23,15 @@ The `<kaiui-list-item>` component.
 
   The Tertiary Text 
 
-- `icon-left` ***String*** (*optional*) `default: 'none'` 
+- `icon-left` ***String*** (*optional*) `default: 'none'`
 
   The Left Icon CSS class 
+  ***Warning:*** Overrides `iconLeft` slot
 
-- `icon-right` ***String*** (*optional*) `default: 'kai-icon-arrow'` 
+- `icon-right` ***String*** (*optional*) `default: 'none'`
 
-  The Right Icon CSS class 
+  The Right Icon CSS class
+  ***Warning:*** Overrides `iconRight` slot
 
 ## events 
 
@@ -51,3 +53,13 @@ The `<kaiui-list-item>` component.
 
 - `set-element-selected` 
 
+## slots
+
+- `iconLeft`
+
+  Allows to use custom component/icon in left icon container
+  ***Warning:*** Not displayed if `iconLeft` prop is set and not `none`
+
+- `iconRight`
+  Allows to use custom component/icon in right icon container
+  ***Warning:*** Not displayed if `iconRight` prop is set and not `none`
