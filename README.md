@@ -73,7 +73,7 @@ See [Contributing](#contributing).
 - [x] Multiple-line Input
 - [x] Toast
 - [x] Radio Button (Group)
-- [ ] Progress
+- [x] Progress
 - [ ] Slider (update Design!)
 - [ ] Date/Time Value Selector
 - [x] Dialog / Value Selector / Option Menu

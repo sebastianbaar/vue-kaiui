@@ -18,6 +18,7 @@ import Slider from "./components/Slider.vue";
 import Toast from "./components/Toast.vue";
 import Dialog from "./components/Dialog.vue";
 import Notice from "./components/Notice.vue";
+import Progress from "./components/Progress.vue";
 // Mixins
 import ToastMixin from "./mixins/Toast.mixin.vue";
 import NoticeMixin from "./mixins/Notice.mixin.vue";
@@ -50,6 +51,8 @@ function install(Vue) {
   Vue.component(Toast.name, Toast);
   Vue.component(Dialog.name, Dialog);
   Vue.component(Notice.name, Notice);
+  Vue.component(Progress.name, Progress);
+
   // mixins
   Vue.mixin(ToastMixin);
   Vue.mixin(NoticeMixin);

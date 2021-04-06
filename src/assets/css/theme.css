@@ -91,6 +91,11 @@ html {
   --radio-button-icon-selected-checked-color: var(--light-color);
   --radio-button-icon-color: var(--text-dark-color);
   --radio-button-icon-color-checked: var(--primary-color);
+
+  --progress-color: #aaaaaa;
+  --progress-color-selected: #873eff;
+  --progress-focused-color: #aaaaaa;
+  --progress-focused-selected: var(--primary-color);
 }
 
 /* KaiOS Typography*/
