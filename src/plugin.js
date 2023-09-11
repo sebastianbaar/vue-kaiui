@@ -22,6 +22,8 @@ import Notice from "./components/Notice.vue";
 import ToastMixin from "./mixins/Toast.mixin.vue";
 import NoticeMixin from "./mixins/Notice.mixin.vue";
 
+import Navigation from './navigation/Navigation';
+
 // CSS & Ionicons icons
 require("./assets/css/theme.css");
 require("./assets/ionicons/css/style.css");
@@ -70,4 +72,5 @@ if (GlobalVue) {
   GlobalVue.use(plugin);
 }
 
+export const Navigation = Navigation;
 export default plugin;
